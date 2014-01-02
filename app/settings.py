@@ -1,5 +1,4 @@
 from os.path import dirname, join, realpath
-import sys
 
 _current_dir = dirname(realpath(__file__))
 
@@ -28,14 +27,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'homepage',
-        'USER': 'homepage',
-        'PASSWORD': 'homepage',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'TEST_CHARSET': 'utf8',
-        'TEST_COLLATION': 'utf8_general_ci',
+        'ENGINE': 'django.db.backends.sqlite3',
     }
 }
 
@@ -115,7 +107,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
 )
 
-INSTALLED_APPS = filter(None, [
+INSTALLED_APPS = list(filter(None, [
     # core
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,7 +120,11 @@ INSTALLED_APPS = filter(None, [
 
     # third-party
     'debug_toolbar' if DEBUG else None,
-])
+
+    # internal
+    'app.pages',
+    'app.shared',
+]))
 
 # debug_toolbar
 if DEBUG:
