@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Page
+from .models import Image, Page
 
 
 class PageAdmin(admin.ModelAdmin):
@@ -15,3 +15,8 @@ class PageAdmin(admin.ModelAdmin):
         }),
     )
 admin.site.register(Page, PageAdmin)
+
+
+class ImageAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__',)
+admin.site.register(Image, ImageAdmin)
