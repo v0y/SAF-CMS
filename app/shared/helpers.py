@@ -9,3 +9,10 @@ def slugify(string):
     :return: slugified string
     """
     return django_slugify(string.replace(u'ł', 'l').replace(u'Ł', 'L'))
+
+
+def shorten(s, max_len=50):
+    if len(s) > max_len:
+        return '%s…' % s[:max_len - 1]
+    else:
+        return s
