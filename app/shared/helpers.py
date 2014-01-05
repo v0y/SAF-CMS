@@ -8,7 +8,7 @@ def slugify(string):
     :param string: string to slugify
     :return: slugified string
     """
-    return django_slugify(string.replace(u'ł', 'l').replace(u'Ł', 'L'))
+    return django_slugify(string.replace('ł', 'l').replace('Ł', 'L'))
 
 
 def shorten(s, max_len=50):
