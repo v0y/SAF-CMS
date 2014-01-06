@@ -18,7 +18,7 @@ MANAGERS = ADMINS
 ALLOWED_HOSTS = []
 SECRET_KEY = 'qpn8yh!vfg#waky9i+982^qc07u&939yt!52@)2t3sj92%gv$0'
 ROOT_URLCONF = 'app.urls'
-WSGI_APPLICATION = 'app.wsgi.application'
+WSGI_APPLICATION = 'passenger_wsgi.application'
 
 
 ###############################################################################

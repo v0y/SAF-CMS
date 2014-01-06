@@ -41,10 +41,15 @@ if show_errors:
         application = ErrorMiddlewareV.EMV(
             django.core.handlers.wsgi.WSGIHandler(), True)
     except ImportError:
-        # run with visible errors (python 2.7 i 2.6)
-        from paste.exceptions.errormiddleware import ErrorMiddleware
-        application = django.core.handlers.wsgi.WSGIHandler()
-        application = ErrorMiddleware(application, debug=True)
+        try:
+            # run with visible errors (python 2.7 i 2.6)
+            from paste.exceptions.errormiddleware import ErrorMiddleware
+            application = django.core.handlers.wsgi.WSGIHandler()
+            application = ErrorMiddleware(application, debug=True)
+        except ImportError:
+            # run with hidden errors
+            application = django.core.handlers.wsgi.WSGIHandler()
+
 else:
     # run with hidden errors
     application = django.core.handlers.wsgi.WSGIHandler()
