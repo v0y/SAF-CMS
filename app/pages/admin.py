@@ -7,7 +7,9 @@ class PageAdmin(admin.ModelAdmin):
     list_display = ('is_active', 'name')
     fieldsets = (
         (None, {
-            'fields': ('name', 'is_active', 'content', 'image')
+            'fields':
+                ('name', 'is_active', 'is_in_menu', 'is_index', 'content',
+                 'image')
         }),
         ('Advanceds', {
             'classes': ('collapse',),
