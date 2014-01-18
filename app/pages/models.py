@@ -1,6 +1,7 @@
 from os.path import join
 from uuid import uuid4
 
+from django.core.exceptions import ValidationError
 from django.db import models
 
 from app.shared.helpers import shorten
@@ -25,7 +26,8 @@ class Image(models.Model):
 
 
 class Page(NameAbstract, SlugAbstract):
-    parent = models.ForeignKey('self', related_name='childs')
+    parent = models.ForeignKey(
+        'self', related_name='childs', blank=True, null=True)
     images = models.ManyToManyField(
         'Image', related_name='articles', blank=True, null=True)
     is_active = models.BooleanField(verbose_name='is active?')
@@ -43,3 +45,9 @@ class Page(NameAbstract, SlugAbstract):
         if self.is_index:
             Page.objects.filter(is_index=True).update(is_index=False)
         return super(Page, self).save(*args, **kwargs)
+
+    def clean(self):
+        if not (self.is_index or self.parent):
+            raise ValidationError('Only main page can have no parent.')
+        if self.is_index and self.parent:
+            raise ValidationError('Main page can not have parents.')
