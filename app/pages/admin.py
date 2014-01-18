@@ -9,7 +9,7 @@ class PageAdmin(admin.ModelAdmin):
         (None, {
             'fields':
                 ('name', 'is_active', 'is_in_menu', 'is_index', 'content',
-                 'image')
+                 'images')
         }),
         ('Advanceds', {
             'classes': ('collapse',),

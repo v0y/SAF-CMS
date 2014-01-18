@@ -26,6 +26,8 @@ class Image(models.Model):
 
 class Page(NameAbstract, SlugAbstract):
     parent = models.ForeignKey('self', related_name='childs')
+    images = models.ManyToManyField(
+        'Image', related_name='articles', blank=True, null=True)
     is_active = models.BooleanField(verbose_name='is active?')
     is_in_menu = models.BooleanField(verbose_name='is in menu?')
     is_index = models.BooleanField(verbose_name='is main page?')
