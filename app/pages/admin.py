@@ -4,12 +4,12 @@ from .models import Image, Page
 
 
 class PageAdmin(admin.ModelAdmin):
-    list_display = ('is_active', 'name')
+    list_display = ('name', 'is_active', 'is_in_menu', 'is_index', 'parent')
     fieldsets = (
         (None, {
             'fields':
                 ('name', 'is_active', 'is_in_menu', 'is_index', 'content',
-                 'images')
+                 'parent', 'images')
         }),
         ('Advanceds', {
             'classes': ('collapse',),
