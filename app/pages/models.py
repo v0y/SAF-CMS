@@ -29,7 +29,7 @@ class MenuItem(NameAbstract):
     parent = models.ForeignKey(
         'self', related_name='childs', blank=True, null=True,
         help_text='If manu item has no parent it is main (index) menu item')
-
+    page = models.OneToOneField('Page', related_name='menu_item')
     is_active = models.BooleanField(
         verbose_name='is active?',
         help_text='If menu item is active it\'s visible in menu')
@@ -42,10 +42,8 @@ class MenuItem(NameAbstract):
 
 
 class Page(NameAbstract, SlugAbstract):
-    menu_item = models.OneToOneField(
-        'MenuItem', related_name='article', blank=True, null=True)
     images = models.ManyToManyField(
-        'Image', related_name='articles', blank=True, null=True)
+        'Image', related_name='pages', blank=True, null=True)
     content = models.TextField()
 
     class Meta:
@@ -53,6 +51,6 @@ class Page(NameAbstract, SlugAbstract):
         verbose_name = 'page'
         verbose_name_plural = 'pages'
 
-    @classmethod
-    def get_index(cls):
-        return cls.objects.get(menu_item__parent__isnull=True).page
+    @staticmethod
+    def get_index():
+        return MenuItem.objects.get(parent__isnull=True).page
