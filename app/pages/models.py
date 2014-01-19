@@ -40,6 +40,10 @@ class MenuItem(NameAbstract):
             raise ValidationError(
                 'Main menu item (without parents) already exists.')
 
+    @classmethod
+    def get_index(cls):
+        return cls.objects.get(parent__isnull=True)
+
 
 class Page(NameAbstract, SlugAbstract):
     images = models.ManyToManyField(
@@ -53,4 +57,4 @@ class Page(NameAbstract, SlugAbstract):
 
     @staticmethod
     def get_index():
-        return MenuItem.objects.get(parent__isnull=True).page
+        return MenuItem.get_index().page
