@@ -8,6 +8,10 @@ class ImageAdmin(admin.ModelAdmin):
 admin.site.register(Image, ImageAdmin)
 
 
+class ImageInline(admin.TabularInline):
+    model = Image
+
+
 class MenuItemAdmin(admin.ModelAdmin):
     list_display = ('name', 'is_active', 'parent', 'page')
 admin.site.register(MenuItem, MenuItemAdmin)
@@ -18,11 +22,11 @@ class MenuItemInline(admin.TabularInline):
 
 
 class PageAdmin(admin.ModelAdmin):
-    inlines = [MenuItemInline]
+    inlines = [MenuItemInline, ImageInline]
     list_display = ('name',)
     fieldsets = (
         (None, {
-            'fields': ('name', 'content', 'images')
+            'fields': ('name', 'content')
         }),
         ('Advanced', {
             'classes': ('collapse',),

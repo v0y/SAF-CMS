@@ -14,6 +14,8 @@ class Image(models.Model):
         new_filename = '%s.%s' % (uuid4(), ext)
         return join(upload_to, new_filename)
 
+    page = models.ForeignKey(
+        'Page', related_name='images', blank=True, null=True)
     description = models.CharField(max_length=256, blank=True, null=True)
     image = models.ImageField(upload_to=rename_image)
 
@@ -46,8 +48,6 @@ class MenuItem(NameAbstract):
 
 
 class Page(NameAbstract, SlugAbstract):
-    images = models.ManyToManyField(
-        'Image', related_name='pages', blank=True, null=True)
     content = models.TextField()
 
     class Meta:
