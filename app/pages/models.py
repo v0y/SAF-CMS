@@ -25,14 +25,27 @@ class Image(models.Model):
         return shorten(self.description, 25) or 'image'
 
 
-class Page(NameAbstract, SlugAbstract):
+class MenuItem(NameAbstract):
     parent = models.ForeignKey(
-        'self', related_name='childs', blank=True, null=True)
+        'self', related_name='childs', blank=True, null=True,
+        help_text='If manu item has no parent it is main (index) menu item')
+
+    is_active = models.BooleanField(
+        verbose_name='is active?',
+        help_text='If menu item is active it\'s visible in menu')
+
+    def clean(self):
+        index_exists = MenuItem.objects.filter(parent__isnull=True).exists()
+        if not self.parent and index_exists:
+            raise ValidationError(
+                'Main menu item (without parents) already exists.')
+
+
+class Page(NameAbstract, SlugAbstract):
+    menu_item = models.OneToOneField(
+        'MenuItem', related_name='article', blank=True, null=True)
     images = models.ManyToManyField(
         'Image', related_name='articles', blank=True, null=True)
-    is_active = models.BooleanField(verbose_name='is active?')
-    is_in_menu = models.BooleanField(verbose_name='is in menu?')
-    is_index = models.BooleanField(verbose_name='is main page?')
     content = models.TextField()
 
     class Meta:
@@ -40,14 +53,6 @@ class Page(NameAbstract, SlugAbstract):
         verbose_name = 'page'
         verbose_name_plural = 'pages'
 
-    def save(self, *args, **kwargs):
-        # only one page can be main page
-        if self.is_index:
-            Page.objects.filter(is_index=True).update(is_index=False)
-        return super(Page, self).save(*args, **kwargs)
-
-    def clean(self):
-        if not (self.is_index or self.parent):
-            raise ValidationError('Only main page can have no parent.')
-        if self.is_index and self.parent:
-            raise ValidationError('Main page can not have parents.')
+    @classmethod
+    def get_index(cls):
+        return cls.objects.get(menu_item__parent__isnull=True).page
