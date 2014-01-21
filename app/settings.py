@@ -61,7 +61,7 @@ TIME_INPUT_FORMATS = (
 MEDIA_ROOT = join(_current_dir, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = join(_current_dir, 'public_html')
+STATIC_ROOT = join(_current_dir, '..', 'public', 'static')
 STATIC_URL = '/static/'
 
 # Additional locations of static files
@@ -106,6 +106,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
+
+    # internal
+    "app.pages.context_processors.menu"
 )
 
 INSTALLED_APPS = list(filter(None, [

@@ -1,1 +1,19 @@
-Tu będzie menu
+<div id="js-pure-menu" class="pure-menu pure-menu-open pure-menu-horizontal">
+	<a href="#" class="pure-menu-heading">{{ menu.0 }}</a>
+
+	<ul id="js-menu-items">
+		{% for level1 in menu.1 %}
+			<li><a href="#">{{ level1.0 }}</a>
+				{% if level1.1 %}
+					<ul>
+						{% for level2 in level1.1 %}
+							<li><a href="#">{{ level2 }}</a></li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+</div>
+
+<script src="{{ STATIC_URL }}pages/js/dropdown_menu.js"></script>
