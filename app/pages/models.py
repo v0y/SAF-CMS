@@ -37,8 +37,10 @@ class MenuItem(NameAbstract):
         help_text='If menu item is active it\'s visible in menu')
 
     def clean(self):
-        index_exists = MenuItem.objects.filter(parent__isnull=True).exists()
-        if not self.parent and index_exists:
+        existing_index = MenuItem.objects.filter(parent__isnull=True) \
+            .only('pk').first()
+
+        if not self.parent and existing_index and self.pk != existing_index.pk:
             raise ValidationError(
                 'Main menu item (without parents) already exists.')
 
