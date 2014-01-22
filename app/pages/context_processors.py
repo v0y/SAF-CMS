@@ -31,13 +31,14 @@ def menu(request):
     :return: menu items structure
     :rtype: list
     """
-    index = MenuItem.objects.get(parent__isnull=True, is_active=True)
 
+    active_menu_items = MenuItem.objects.filter(is_active=True)
+    index = active_menu_items.get(parent__isnull=True)
     menu_list = [index, []]
 
-    for level1 in index.children.filter(is_active=True):
+    for level1 in active_menu_items.filter(parent=index):
         menu_list[1].append(
-            (level1, list(level1.children.filter(is_active=True)))
+            (level1, active_menu_items.filter(parent=level1))
         )
 
     return {'menu': menu_list}
