@@ -1,7 +1,9 @@
 <div id="js-pure-menu" class="pure-menu pure-menu-open pure-menu-horizontal">
-	<a href="#" class="pure-menu-heading">{{ menu.0 }}</a>
 
 	<ul id="js-menu-items">
+		<li>
+			<a href="/">{{ menu.0 }}</a>
+		</li>
 		{% for level1 in menu.1 %}
 			<li>
 				<a href="{{ level1.0.get_absolute_url }}">{{ level1.0 }}</a>

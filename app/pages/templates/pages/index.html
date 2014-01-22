@@ -1,6 +1,9 @@
 {% extends 'shared/base.html' %}
 
+{% block header %}
+	{{ object.name }}
+{% endblock %}
+
 {% block content %}
-	<h1>{{ object.name }}</h1>
 	{{ object.content }}
 {% endblock %}
