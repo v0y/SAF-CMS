@@ -30,7 +30,7 @@ class Image(models.Model):
 
 class MenuItem(NameAbstract):
     parent = models.ForeignKey(
-        'self', related_name='childs', blank=True, null=True,
+        'self', related_name='children', blank=True, null=True,
         help_text='If manu item has no parent it is main (index) menu item')
     page = models.OneToOneField(
         'Page', related_name='menu_item', blank=True, null=True)

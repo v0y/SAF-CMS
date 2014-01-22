@@ -35,7 +35,9 @@ def menu(request):
 
     menu_list = [index, []]
 
-    for level1 in index.childs.filter(is_active=True):
-        menu_list[1].append((level1, list(level1.childs.filter(is_active=True))))
+    for level1 in index.children.filter(is_active=True):
+        menu_list[1].append(
+            (level1, list(level1.children.filter(is_active=True)))
+        )
 
     return {'menu': menu_list}
