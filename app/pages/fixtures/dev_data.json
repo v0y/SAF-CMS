@@ -1,0 +1,107 @@
+[
+    {
+        "pk": 1,
+        "fields": {
+            "page": 1,
+            "name": "strona g\u0142\u00f3wna",
+            "is_active": true,
+            "parent": null
+        },
+        "model": "pages.menuitem"
+    },
+    {
+        "pk": 2,
+        "fields": {
+            "page": null,
+            "name": "projekty",
+            "is_active": true,
+            "parent": 1
+        },
+        "model": "pages.menuitem"
+    },
+    {
+        "pk": 3,
+        "fields": {
+            "page": 3,
+            "name": "o mnie",
+            "is_active": true,
+            "parent": 1
+        },
+        "model": "pages.menuitem"
+    },
+    {
+        "pk": 4,
+        "fields": {
+            "page": 4,
+            "name": "projekt 1",
+            "is_active": true,
+            "parent": 2
+        },
+        "model": "pages.menuitem"
+    },
+    {
+        "pk": 5,
+        "fields": {
+            "page": 5,
+            "name": "projekt 2",
+            "is_active": true,
+            "parent": 2
+        },
+        "model": "pages.menuitem"
+    },
+    {
+        "pk": 6,
+        "fields": {
+            "page": 6,
+            "name": "chuja muja",
+            "is_active": true,
+            "parent": 1
+        },
+        "model": "pages.menuitem"
+    },
+    {
+        "pk": 1,
+        "fields": {
+            "slug": "glowna",
+            "name": "G\u0142\u00f3wna",
+            "content": "aaa"
+        },
+        "model": "pages.page"
+    },
+    {
+        "pk": 3,
+        "fields": {
+            "slug": "o-mnie",
+            "name": "o mnie",
+            "content": "a"
+        },
+        "model": "pages.page"
+    },
+    {
+        "pk": 4,
+        "fields": {
+            "slug": "projekt-1",
+            "name": "projekt 1",
+            "content": "projekt 1"
+        },
+        "model": "pages.page"
+    },
+    {
+        "pk": 5,
+        "fields": {
+            "slug": "projekt-2",
+            "name": "projekt 2",
+            "content": "projekt 2"
+        },
+        "model": "pages.page"
+    },
+    {
+        "pk": 6,
+        "fields": {
+            "slug": "chuja-muja",
+            "name": "chuja muja",
+            "content": "xz"
+        },
+        "model": "pages.page"
+    }
+]
