@@ -8,7 +8,13 @@
 
 	<body>
 		{% include 'shared/navbar.html' %}
-		{% block content %}{% endblock %}
+		<div class="pure-g">
+			<div class="pure-u-1-6"> </div>
+			<div class="pure-u-2-3">
+				{% block content %}{% endblock %}
+			</div>
+			<div class="pure-u-1-6"> </div>
+		</div>
 	</body>
 
 </html>

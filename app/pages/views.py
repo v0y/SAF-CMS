@@ -1,15 +1,13 @@
 from django.views.generic import DetailView
-from django.views.generic.base import TemplateView
 
 from .models import Page
 
 
-class IndexView(TemplateView):
+class IndexView(DetailView):
     template_name = 'pages/index.html'
 
-    def get_context_data(self, **kwargs):
-        index = Page.get_index()
-        return {'page': index}
+    def get_object(self, queryset=None):
+        return Page.get_index()
 
 
 class PageView(DetailView):
