@@ -2,6 +2,7 @@ from os.path import join
 from uuid import uuid4
 
 from django.core.exceptions import ValidationError
+from django.core.urlresolvers import reverse
 from django.db import models
 
 from app.shared.helpers import shorten
@@ -44,6 +45,9 @@ class MenuItem(NameAbstract):
         if not self.parent and existing_index and self.pk != existing_index.pk:
             raise ValidationError(
                 'Main menu item (without parents) already exists.')
+
+    def get_absolute_url(self):
+        return reverse('page', args=[self.page.slug]) if self.page else '#'
 
     @classmethod
     def get_index(cls):

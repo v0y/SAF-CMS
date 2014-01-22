@@ -3,11 +3,16 @@
 
 	<ul id="js-menu-items">
 		{% for level1 in menu.1 %}
-			<li><a href="#">{{ level1.0 }}</a>
+			<li>
+				<a href="{{ level1.0.get_absolute_url }}">{{ level1.0 }}</a>
 				{% if level1.1 %}
 					<ul>
 						{% for level2 in level1.1 %}
-							<li><a href="#">{{ level2 }}</a></li>
+							<li>
+								<a href="{{ level2.get_absolute_url }}">
+									{{ level2 }}
+								</a>
+							</li>
 						{% endfor %}
 					</ul>
 				{% endif %}
