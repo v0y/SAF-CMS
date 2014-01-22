@@ -1,4 +1,3 @@
-from pprint import pprint
 from .models import MenuItem
 
 
@@ -38,7 +37,5 @@ def menu(request):
 
     for level1 in index.childs.filter(is_active=True):
         menu_list[1].append((level1, list(level1.childs.filter(is_active=True))))
-
-    pprint(menu_list)
 
     return {'menu': menu_list}
