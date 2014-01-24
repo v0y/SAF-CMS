@@ -2,23 +2,20 @@
 <html>
 
 	<head>
-
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
 	</head>
 
-	<body>
-		<div>
-			<div>
-
+	<body class="container">
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-8">
 				{% include 'shared/navbar.html' %}
 
 				<h1>
 					{% block header %}{% endblock %}
 				</h1>
 
-				<div class="content">
-					{% block content %}{% endblock %}
-				</div>
+				{% block content %}{% endblock %}
 
 			</div>
 		</div>
