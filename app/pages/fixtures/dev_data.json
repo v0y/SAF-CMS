@@ -1,107 +1,92 @@
 [
     {
+        "model": "pages.menuitem",
         "pk": 1,
         "fields": {
             "page": 1,
+            "parent": null,
             "name": "strona g\u0142\u00f3wna",
-            "is_active": true,
-            "parent": null
-        },
-        "model": "pages.menuitem"
+            "is_active": true
+        }
     },
     {
+        "model": "pages.menuitem",
         "pk": 2,
         "fields": {
             "page": null,
-            "name": "projekty",
-            "is_active": true,
-            "parent": 1
-        },
-        "model": "pages.menuitem"
+            "parent": 1,
+            "name": "content types",
+            "is_active": true
+        }
     },
     {
+        "model": "pages.menuitem",
         "pk": 3,
         "fields": {
-            "page": 3,
-            "name": "o mnie",
-            "is_active": true,
-            "parent": 1
-        },
-        "model": "pages.menuitem"
+            "page": 2,
+            "parent": 2,
+            "name": "markdown",
+            "is_active": true
+        }
     },
     {
+        "model": "pages.menuitem",
         "pk": 4,
         "fields": {
             "page": 4,
-            "name": "projekt 1",
-            "is_active": true,
-            "parent": 2
-        },
-        "model": "pages.menuitem"
+            "parent": 1,
+            "name": "long text",
+            "is_active": true
+        }
     },
     {
+        "model": "pages.menuitem",
         "pk": 5,
         "fields": {
-            "page": 5,
-            "name": "projekt 2",
-            "is_active": true,
-            "parent": 2
-        },
-        "model": "pages.menuitem"
+            "page": 3,
+            "parent": 2,
+            "name": "html",
+            "is_active": true
+        }
     },
     {
-        "pk": 6,
-        "fields": {
-            "page": 6,
-            "name": "chuja muja",
-            "is_active": true,
-            "parent": 1
-        },
-        "model": "pages.menuitem"
-    },
-    {
+        "model": "pages.page",
         "pk": 1,
         "fields": {
+            "content": "Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit. \r\n\r\nThe path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.",
             "slug": "glowna",
             "name": "G\u0142\u00f3wna",
-            "content": "aaa"
-        },
-        "model": "pages.page"
+            "content_type": 1
+        }
     },
     {
+        "model": "pages.page",
+        "pk": 2,
+        "fields": {
+            "content": "*hello!* \r\n\r\n[look at this pretty link](lolwtf.pl)\r\n\r\n**and hello again!**\r\n\r\n`osom!`\r\n\r\nList:\r\n\n* milk\r\n* eggs\r\n* butter\r\n* tits\r\n* bread",
+            "slug": "markdown",
+            "name": "markdown",
+            "content_type": 1
+        }
+    },
+    {
+        "model": "pages.page",
         "pk": 3,
         "fields": {
-            "slug": "o-mnie",
-            "name": "o mnie",
-            "content": "a"
-        },
-        "model": "pages.page"
+            "content": "<b>bold text</b><br><br><br>\r\nlist:\r\n<ul>\r\n<li>list element</li>\r\n<li>omg, another!</li>\r\n<li>I'M SO FUCKING CRAZY</li>\r\n<li>LOOK AT THIS LIST, MOTHERFUCKER!</li>\r\n</ul>\r\n<p>\r\n<a href=\"http://lolwtf.pl\">zigu zigu</a>\r\n</p>\r\n<p>\r\nMy money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?\r\n</p>",
+            "slug": "html",
+            "name": "html",
+            "content_type": 2
+        }
     },
     {
+        "model": "pages.page",
         "pk": 4,
         "fields": {
-            "slug": "projekt-1",
-            "name": "projekt 1",
-            "content": "projekt 1"
-        },
-        "model": "pages.page"
-    },
-    {
-        "pk": 5,
-        "fields": {
-            "slug": "projekt-2",
-            "name": "projekt 2",
-            "content": "projekt 2"
-        },
-        "model": "pages.page"
-    },
-    {
-        "pk": 6,
-        "fields": {
-            "slug": "chuja-muja",
-            "name": "chuja muja",
-            "content": "xz"
-        },
-        "model": "pages.page"
+            "content": "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?\r\n\r\nLook, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?\r\n\r\nYour bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.\r\n\r\nYou think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man.\r\n\r\nNow that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.",
+            "slug": "long-text",
+            "name": "long text",
+            "content_type": 1
+        }
     }
 ]
