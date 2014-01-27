@@ -7,6 +7,7 @@ from django.db import models
 
 from app.shared.helpers import shorten
 from app.shared.models import NameAbstract, SlugAbstract
+from .enums import PageContentTypes, PAGE_TYPE_CHOICES
 
 
 class Image(models.Model):
@@ -64,14 +65,9 @@ class MenuItem(models.Model):
 
 
 class Page(NameAbstract, SlugAbstract):
-    TYPE_CHOICES = (
-        (1, 'markdown'),
-        (2, 'html'),
-    )
-
     content = models.TextField()
     content_type = models.IntegerField(
-        choices=TYPE_CHOICES, verbose_name='content type', default=1)
+        choices=PAGE_TYPE_CHOICES, verbose_name='content type', default=1)
 
     class Meta:
         ordering = ['name']
@@ -81,3 +77,12 @@ class Page(NameAbstract, SlugAbstract):
     @staticmethod
     def get_index():
         return MenuItem.get_index().page
+
+    @property
+    def is_html(self):
+        return self.content_type == PageContentTypes.HTML
+
+    @property
+    def is_markdown(self):
+        return self.content_type == PageContentTypes.MARKDOWN
+
