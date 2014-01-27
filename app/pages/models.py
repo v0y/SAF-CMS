@@ -28,7 +28,8 @@ class Image(models.Model):
         return shorten(self.description, 25) or 'image'
 
 
-class MenuItem(NameAbstract):
+class MenuItem(models.Model):
+    name = models.CharField(max_length=64, blank=True, unique=True)
     parent = models.ForeignKey(
         'self', related_name='children', blank=True, null=True,
         help_text='If manu item has no parent it is main (index) menu item')
@@ -38,6 +39,9 @@ class MenuItem(NameAbstract):
         verbose_name='is active?',
         help_text='If menu item is active it\'s visible in menu')
 
+    def __unicode__(self):
+        return self.name
+
     def clean(self):
         existing_index = MenuItem.objects.filter(parent__isnull=True) \
             .only('pk').first()
@@ -45,6 +49,11 @@ class MenuItem(NameAbstract):
         if not self.parent and existing_index and self.pk != existing_index.pk:
             raise ValidationError(
                 'Main menu item (without parents) already exists.')
+
+    def save(self, *args, **kwargs):
+        if not self.name:
+            self.name = self.page.name
+        return super(MenuItem, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('page', args=[self.page.slug]) if self.page else '#'
