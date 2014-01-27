@@ -30,7 +30,7 @@ class PageAdmin(admin.ModelAdmin):
         }),
         ('Advanced', {
             'classes': ('collapse',),
-            'fields': ('slug',)
+            'fields': ('slug', 'content_type')
         }),
     )
 admin.site.register(Page, PageAdmin)

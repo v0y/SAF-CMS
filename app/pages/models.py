@@ -55,7 +55,14 @@ class MenuItem(NameAbstract):
 
 
 class Page(NameAbstract, SlugAbstract):
+    TYPE_CHOICES = (
+        (1, 'markdown'),
+        (2, 'html'),
+    )
+
     content = models.TextField()
+    content_type = models.IntegerField(
+        choices=TYPE_CHOICES, verbose_name='content type', default=1)
 
     class Meta:
         ordering = ['name']
