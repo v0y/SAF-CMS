@@ -15,7 +15,7 @@ _current_dir = dirname(realpath(__file__))
 ###############################################################################
 
 IS_PRODUCTION = platform.node().endswith('vipserv.org')
-DEBUG = FORCE_DEBUG or not IS_PRODUCTION
+DEBUG = False #FORCE_DEBUG or not IS_PRODUCTION
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -23,7 +23,7 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 SECRET_KEY = 'qpn8yh!vfg#waky9i+982^qc07u&939yt!52@)2t3sj92%gv$0'
 ROOT_URLCONF = 'app.urls'
 WSGI_APPLICATION = 'passenger_wsgi.application'
