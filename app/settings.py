@@ -1,4 +1,5 @@
 from os.path import dirname, join, realpath
+import platform
 
 _current_dir = dirname(realpath(__file__))
 
@@ -7,7 +8,8 @@ _current_dir = dirname(realpath(__file__))
 # Basic settings
 ###############################################################################
 
-DEBUG = True
+IS_PRODUCTION = platform.node().endswith('vipserv.org')
+DEBUG = not IS_PRODUCTION
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
