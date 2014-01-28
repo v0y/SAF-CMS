@@ -39,4 +39,5 @@ nosetests.xml
 app/media
 app/static
 settings_local.py
+force_debug.py
 *.sqlite3

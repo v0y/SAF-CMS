@@ -1,6 +1,12 @@
 from os.path import dirname, join, realpath
 import platform
 
+# import force debug settings
+try:
+    from force_debug import FORCE_DEBUG
+except ImportError:
+    FORCE_DEBUG = False
+
 _current_dir = dirname(realpath(__file__))
 
 
@@ -9,7 +15,7 @@ _current_dir = dirname(realpath(__file__))
 ###############################################################################
 
 IS_PRODUCTION = platform.node().endswith('vipserv.org')
-DEBUG = not IS_PRODUCTION
+DEBUG = FORCE_DEBUG or not IS_PRODUCTION
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
