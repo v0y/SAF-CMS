@@ -39,3 +39,4 @@ nosetests.xml
 app/media
 app/static
 settings_local.py
+*.sqlite3
