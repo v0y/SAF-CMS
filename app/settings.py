@@ -139,3 +139,9 @@ if DEBUG:
     DEBUG_TOOLBAR_CONFIG = {
         'INTERCEPT_REDIRECTS': False
     }
+
+# import local settings
+try:
+    from settings_local import *
+except ImportError:
+    pass
