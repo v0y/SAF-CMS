@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
 @import "normalize.min.css";
 
 // solarized <3
@@ -28,6 +29,9 @@
 @accent2-color: @cyan;
 @spacing: 1em;
 
+@sans: 'Lato', sans-serif;
+@monospace: 'Inconsolata', monospace;
+
 // ----------------------------------------------------------------------------
 // mixins
 // ----------------------------------------------------------------------------
@@ -45,12 +49,12 @@
 html, body {
     color: @font-color;
     background-color: @background-color;
-    font-family: 'Lato', sans-serif;
+    font-family: @sans;
     text-align: justify;
 }
 
 // ----------------------------------------------------------------------------
-// typography
+// typography and elements
 // ----------------------------------------------------------------------------
 
 a {
@@ -60,6 +64,20 @@ a {
 
 a:hover {
     color: @accent2-color;
+}
+
+pre {
+    padding: @spacing @spacing*2;
+    font-family: @monospace;
+
+    code {
+        font-family: @monospace;
+    }
+}
+
+blockquote {
+    font-style: italic;
+    margin: @spacing;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -97,12 +115,16 @@ h6 {
     font-size: 1em;
 }
 
-// ----------------------------------------------------------------------------
-// components
-// ----------------------------------------------------------------------------
+hr {
+    .border(0, 0, 1px, 0);
+}
+
+p {
+    padding: 0 @spacing;
+}
 
 ul {
-    padding-left: @spacing;
+    padding-left: @spacing*2;
 }
 
 // ----------------------------------------------------------------------------
@@ -116,15 +138,13 @@ ul {
 .container {
     margin-left: auto;
     margin-right: auto;
-    padding: 0 @spacing;
+    padding: 0;
 
     .row {
-        margin: 0 -@spacing;
 
         [class^="col-"] {
             float: left;
             display: inline;
-            padding: @spacing;
             position: relative;
             min-height: 1px;
         }
@@ -205,6 +225,7 @@ ul {
 
         li:hover {
             background-color: @background-active-color;
+            opacity: 0.9;
 
             ul {
                 left: 0;
