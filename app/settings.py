@@ -15,7 +15,7 @@ _current_dir = dirname(realpath(__file__))
 ###############################################################################
 
 IS_PRODUCTION = platform.node().endswith('vipserv.org')
-DEBUG = False #FORCE_DEBUG or not IS_PRODUCTION
+DEBUG = FORCE_DEBUG or not IS_PRODUCTION
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
