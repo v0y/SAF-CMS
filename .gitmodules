@@ -1,0 +1,3 @@
+[submodule "vendor/OSB-CSS"]
+	path = vendor/OSB-CSS
+	url = git@github.com:v0y/OSB-CSS.git

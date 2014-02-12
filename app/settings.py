@@ -74,6 +74,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    join(_current_dir, '..', 'vendor', 'OSB-CSS'),
 )
 
 STATICFILES_FINDERS = (
