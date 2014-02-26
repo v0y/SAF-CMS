@@ -19,8 +19,11 @@ TODO: move to fapfile or something
 ```sh
 $ cd rails/homepage
 $ git pull
-$ git submodule init
 $ git submodule update
+$ cd vendor/OSB-CSS
+$ vim css/osb.less  # enable theme
+$ lessc osb.less > osb.css
+$ cd ../../
 $ ./manage.py collectstatic
 $ touch tmp/restart.txt
 ```
