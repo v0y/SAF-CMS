@@ -26,7 +26,7 @@ class PageAdmin(admin.ModelAdmin):
     list_display = ('name',)
     fieldsets = (
         (None, {
-            'fields': ('name', 'content')
+            'fields': ('name', 'short', 'content')
         }),
         ('Advanced', {
             'classes': ('collapse',),
