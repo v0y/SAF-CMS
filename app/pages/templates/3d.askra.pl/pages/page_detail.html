@@ -1,0 +1,10 @@
+{% extends 'shared/base.html' %}
+{% load markup %}
+
+{% block content %}
+	{% if object.is_html %}
+		{{ object.content|safe }}
+	{% elif object.is_markdown %}
+		{{ object.content|markdown }}
+	{% endif %}
+{% endblock %}

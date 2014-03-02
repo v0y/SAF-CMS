@@ -8,6 +8,13 @@ THEMES = ({
     'screenshot': '',
     'template_dir': 'default',
     'static_url': '/static/default/',
-},)
+},
+{
+    'name': '3d.askra.pl',
+    'description': 'Theme for 3d.askra.pl site',
+    'screenshot': '',
+    'template_dir': '3d.askra.pl',
+    'static_url': '/static/3d.askra.pl/',
+})
 
 DEFAULT_THEME = 0
