@@ -133,6 +133,7 @@ INSTALLED_APPS = list(filter(None, [
 
     # third-party
     'debug_toolbar' if DEBUG else None,
+    'south',
 
     # internal
     'app.pages',
