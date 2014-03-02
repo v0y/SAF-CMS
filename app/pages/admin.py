@@ -1,6 +1,15 @@
 from django.contrib import admin
 
-from .models import Image, MenuItem, Page
+from .models import Box, Image, MenuItem, Page
+
+
+class BoxAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__',)
+admin.site.register(Box, BoxAdmin)
+
+
+class BoxIneline(admin.TabularInline):
+    model = Box
 
 
 class ImageAdmin(admin.ModelAdmin):
@@ -22,7 +31,7 @@ class MenuItemInline(admin.TabularInline):
 
 
 class PageAdmin(admin.ModelAdmin):
-    inlines = [MenuItemInline, ImageInline]
+    inlines = [MenuItemInline, BoxIneline, ImageInline]
     list_display = ('name',)
     fieldsets = (
         (None, {

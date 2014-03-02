@@ -7,8 +7,18 @@ from django.db import models
 
 from app.shared.helpers import shorten
 from app.shared.models import NameAbstract, SlugAbstract
-from .enums import PageContentTypes, PAGE_TYPE_CHOICES
+from .enums import PageContentTypes, CONTENT_TYPE_CHOICES
 
+
+class Box(models.Model):
+    Page = models.ForeignKey('Page', related_name='boxes')
+    codename = models.SlugField()
+    content = models.TextField()
+    content_type = models.IntegerField(
+        choices=CONTENT_TYPE_CHOICES, verbose_name='content type', default=1)
+
+    def __unicode__(self):
+        return self.codename
 
 class Image(models.Model):
     def rename_image(self, filename, upload_to='images'):
@@ -68,7 +78,7 @@ class Page(NameAbstract, SlugAbstract):
     short = models.TextField(blank=True)
     content = models.TextField()
     content_type = models.IntegerField(
-        choices=PAGE_TYPE_CHOICES, verbose_name='content type', default=1)
+        choices=CONTENT_TYPE_CHOICES, verbose_name='content type', default=1)
 
     class Meta:
         ordering = ['name']

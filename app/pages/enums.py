@@ -3,7 +3,7 @@ class PageContentTypes:
     HTML = 2
 
 
-PAGE_TYPE_CHOICES = (
+CONTENT_TYPE_CHOICES = (
     (PageContentTypes.MARKDOWN, 'markdown'),
     (PageContentTypes.HTML, 'html'),
 )
