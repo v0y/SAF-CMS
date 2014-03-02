@@ -8,9 +8,14 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    # third party
+    url(r'^themes/', include('themes.urls')),
+
+    # internal
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('app.pages.urls')),
 )
+
 
 if settings.DEBUG:
     urlpatterns += \

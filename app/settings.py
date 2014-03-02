@@ -96,6 +96,7 @@ TEMPLATE_DIRS = (
 ###############################################################################
 
 MIDDLEWARE_CLASSES = (
+    # core
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -103,21 +104,27 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+
+    # third party
+    'themes.middleware.ThemesMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     # core
-    "django.core.context_processors.request",
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    "django.core.context_processors.tz",
-    "django.contrib.messages.context_processors.messages",
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
+
+    # third party
+    'themes.context_processors.themes',
 
     # internal
-    "app.pages.context_processors.menu"
+    'app.pages.context_processors.menu'
 )
 
 INSTALLED_APPS = list(filter(None, [
@@ -134,6 +141,7 @@ INSTALLED_APPS = list(filter(None, [
     # third-party
     'debug_toolbar' if DEBUG else None,
     'south',
+    'themes',
 
     # internal
     'app.pages',
@@ -145,6 +153,11 @@ INSTALLED_APPS = list(filter(None, [
 # third-party apps settings
 ###############################################################################
 
+# django theme
+from .themes_settings import *
+THEMES_USE_TEMPLATE_LOADERS = False
+
+
 # debug_toolbar
 if DEBUG:
     DEBUG_TOOLBAR_PATCH_SETTINGS = False
@@ -153,6 +166,7 @@ if DEBUG:
     DEBUG_TOOLBAR_CONFIG = {
         'INTERCEPT_REDIRECTS': False
     }
+
 
 # import local settings
 try:
