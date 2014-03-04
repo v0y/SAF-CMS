@@ -1,23 +1,110 @@
 <!doctype html>
 <html>
-
 	<head>
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/osb-grid.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.min.css">
 		<link rel="stylesheet" href="{{ THEME_STATIC_URL }}shared/style.css">
 	</head>
 
-	<body class="container">
-		<div class="row">
-			<div class="col-90 offset-5">
+	<body>
 
-				<h1>
-					{% block header %}{% endblock %}
-				</h1>
 
-				{% block content %}{% endblock %}
+		{# HEADER #}
 
+		<div class="header-top">
+			<h1>
+				Wydruki 3D, prototypowanie, projektowanie form wtryskowych
+			</h1>
+		</div>
+
+		<div class="header-middle">
+			<div class="boxes">
+				<div class="box-menu">
+					<ul>
+						<a href="#">
+							<li class="active">
+								O nas
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								Wycena
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								Na czym pracujemy
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								Realizacje
+							</li>
+						</a>
+					</ul>
+				</div>
+				<div class="box-short">
+					<h1>
+						Wydruki 3D wykonujemy na:
+					</h1>
+					<p>
+						Firma Askra korzysta z drukarek uPrint SE profesjonalnej amerykańskiej firmy.
+						Wydruki są bardzo wysokiej jakości...
+					</p>
+					<a href="#" class="read-more">Czytaj dalej</a>
+				</div>
 			</div>
 		</div>
-	</body>
 
+		<div class="header-bottom">
+			<div>
+				<h2>
+					Od projektu do produkcji
+				</h2>
+				<p>
+					Masz pomysł, nie wiesz jak wykonać projekt? Zrobimy go za Ciebie, stworzymy prototyp, wykonamy formę.
+				</p>
+			</div>
+		</div>
+
+
+		{# CONTENT #}
+
+		{% block content %}{% endblock %}
+
+		<div class="content-boxes">
+			<div class="box-left">
+				<h1>
+					Wydruki 3D
+				</h1>
+				<article>
+					<p>
+					</p>
+				</article>
+			</div>
+			<div class="box-right">
+				<h1>
+					Projektowanie form
+				</h1>
+				<article>
+					<p>
+					</p>
+				</article>
+			</div>
+		</div>
+
+
+		{# FOOTER #}
+
+		<div class="footer">
+			<div class="footer-boxes">
+				<div class="contact">
+					<h2>Dane kontaktowe</h2>
+				</div>
+				<div class="contact-form">
+					<h2>Formularz kontaktowy</h2>
+				</div>
+			</div>
+		</div>
+
+	</body>
 </html>
