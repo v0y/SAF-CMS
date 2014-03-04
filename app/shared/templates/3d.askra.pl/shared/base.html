@@ -2,13 +2,13 @@
 <html>
 
 	<head>
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/osb.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/osb-grid.css">
+		<link rel="stylesheet" href="{{ THEME_STATIC_URL }}shared/style.css">
 	</head>
 
 	<body class="container">
 		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-8">
+			<div class="col-90 offset-5">
 
 				<h1>
 					{% block header %}{% endblock %}
