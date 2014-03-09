@@ -126,6 +126,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'themes.context_processors.themes',
 
     # internal
+    'app.pages.context_processors.boxes',
     'app.pages.context_processors.menu'
 )
 

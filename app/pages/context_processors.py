@@ -1,4 +1,17 @@
-from .models import MenuItem
+from .models import Box, MenuItem
+
+
+def boxes(request):
+    """
+    Add to context boxes without parent page.
+    """
+
+    boxes_dct = {}
+
+    for box in Box.objects.filter(page__isnull=True):
+        boxes_dct[box.codename] = box
+
+    return {'boxes': boxes_dct}
 
 
 def menu(request):
