@@ -84,6 +84,8 @@ body {
   background-image: url("imgs/askra_logo_55x91.png");
   background-repeat: no-repeat;
   background-position: 10% 50%;
+  display: table-cell;
+  vertical-align: middle;
 }
 .header-middle .boxes .box-menu article {
   padding: 15px;
@@ -95,7 +97,6 @@ body {
   margin-top: 15px;
 }
 .header-middle .boxes .box-menu ul {
-  margin: 25px 0;
   float: right;
 }
 .header-middle .boxes .box-menu ul li {
@@ -128,7 +129,7 @@ body {
   float: right;
   height: 160px;
   width: 610px;
-  margin-top: 20px;
+  margin-top: -160px;
 }
 .header-middle .boxes .box-short article {
   padding: 15px;
@@ -200,6 +201,7 @@ body {
   margin-right: auto;
   margin-top: 30px;
   display: block;
+  font-size: 14px;
 }
 .main-box article {
   padding: 15px;
