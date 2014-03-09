@@ -11,7 +11,8 @@ from .enums import PageContentTypes, CONTENT_TYPE_CHOICES
 
 
 class Box(models.Model):
-    Page = models.ForeignKey('Page', related_name='boxes')
+    Page = models.ForeignKey(
+        'Page', related_name='boxes', blank=True, null=True)
     codename = models.SlugField(unique=True)
     content = models.TextField()
     content_type = models.IntegerField(
