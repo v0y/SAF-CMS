@@ -1,0 +1,18 @@
+[
+    {
+        "fields": {
+            "name": "default",
+            "domain": "localhost:8000"
+        },
+        "pk": 1,
+        "model": "sites.site"
+    },
+    {
+        "fields": {
+            "name": "3d.askra.pl",
+            "domain": "3d.askra.pl"
+        },
+        "pk": 2,
+        "model": "sites.site"
+    }
+]
