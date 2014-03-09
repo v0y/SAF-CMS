@@ -21,6 +21,15 @@ class Box(models.Model):
     def __unicode__(self):
         return self.codename
 
+    @property
+    def is_html(self):
+        return self.content_type == PageContentTypes.HTML
+
+    @property
+    def is_markdown(self):
+        return self.content_type == PageContentTypes.MARKDOWN
+
+
 class Image(models.Model):
     def rename_image(self, filename, upload_to='images'):
         ext = filename.split('.')[-1]
