@@ -76,7 +76,7 @@ class MenuItem(models.Model):
 
 class Page(NameAbstract, SlugAbstract):
     short = models.TextField(blank=True)
-    content = models.TextField()
+    content = models.TextField(blank=True)
     content_type = models.IntegerField(
         choices=CONTENT_TYPE_CHOICES, verbose_name='content type', default=1)
 
