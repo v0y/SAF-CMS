@@ -4,6 +4,9 @@
 {% block content %}
 	{% if object.content %}
 		<div class="main-box">
+			<h1>
+				{{ object.name }}
+			</h1>
 			<article>
 				{% if object.is_html %}
 					{{ object.content|safe }}

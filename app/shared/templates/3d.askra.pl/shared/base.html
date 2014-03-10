@@ -22,37 +22,30 @@
 			<div class="boxes">
 				<div class="box-menu">
 					<ul>
-						<a href="#">
-							<li class="active">
-								O nas
-							</li>
-						</a>
-						<a href="#">
+						<a href="{{ menu.0.get_absolute_url }}">
 							<li>
-								Wycena
+								{{ menu.0 }}
 							</li>
 						</a>
-						<a href="#">
-							<li>
-								Na czym pracujemy
-							</li>
-						</a>
-						<a href="#">
-							<li>
-								Realizacje
-							</li>
-						</a>
+						{% for level1 in menu.1 %}
+							<a href="{{ level1.0.get_absolute_url }}">
+								<li>
+									{{ level1.0 }}
+								</li>
+							</a>
+						{% endfor %}
 					</ul>
 				</div>
 				<div class="box-short">
 					<h1>
-						Wydruki 3D wykonujemy na:
+						{{ object.name }}
 					</h1>
 					<p>
-						Firma Askra korzysta z drukarek uPrint SE profesjonalnej amerykańskiej firmy.
-						Wydruki są bardzo wysokiej jakości...
+						{{ object.short }}
 					</p>
-					<a href="#" class="read-more">Czytaj dalej</a>
+					<a href="{{ level1.0.get_absolute_url }}" class="read-more">
+						Czytaj dalej
+					</a>
 				</div>
 			</div>
 		</div>
