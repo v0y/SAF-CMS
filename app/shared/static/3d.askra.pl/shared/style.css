@@ -235,7 +235,7 @@ body {
   box-shadow: 5px 5px 10px 0px rgba(50, 50, 50, 0.5);
   padding: 0;
   margin: 0;
-  width: 439px;
+  width: 438px;
   height: 500px;
 }
 .content-boxes .box-left article,
@@ -274,38 +274,34 @@ body {
   margin-left: auto;
   margin-right: auto;
   height: 280px;
-  display: table;
   background-color: #000000;
   border-radius: 30px;
 }
 .footer .footer-boxes .contact,
 .footer .footer-boxes .contact-form {
-  display: table-cell;
-  vertical-align: middle;
-}
-.footer .footer-boxes .contact h2,
-.footer .footer-boxes .contact-form h2 {
-  text-align: center;
-  color: #000000;
-  background-color: #2a7fff;
-  font-size: 18px;
-  height: 25px;
-  width: 280px;
-  margin: 0 0 0 -100px;
-  -ms-transform: rotate(270deg);
-  /* IE 9 */
-  -moz-transform: rotate(270deg);
-  /* Firefox */
-  -webkit-transform: rotate(270deg);
-  /* Safari and Chrome */
-  -o-transform: rotate(270deg);
-  /* Opera */
-  transform: rotate(270deg);
-  /* Opera */
+  background-position: left;
+  background-repeat: no-repeat;
+  background-color: none;
+  color: #ffffff;
+  height: 280px;
+  padding-left: 45px;
 }
 .footer .footer-boxes .contact {
-  width: 300px;
+  font-size: 18px;
+  width: 255px;
+  float: left;
+  background-image: url("imgs/dane_kontaktowe.png");
+  text-align: center;
+  margin-left: 30px;
+}
+.footer .footer-boxes .contact .contact-content {
+  margin-top: 50px;
+  width: 235px;
 }
 .footer .footer-boxes .contact-form {
-  width: 610px;
+  font-size: 14px;
+  float: left;
+  display: inline;
+  width: 510px;
+  background-image: url("imgs/form_kontaktowy.png");
 }

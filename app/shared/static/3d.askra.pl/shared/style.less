@@ -124,7 +124,6 @@ body {
             vertical-align: middle;
 
             ul {
-//                margin: 25px 0;
                 float: right;
 
                 li {
@@ -237,7 +236,7 @@ body {
     .box-left,
     .box-right {
         .box;
-        width: 439px;
+        width: 438px;
         height: 500px;
 
         h1 {
@@ -260,37 +259,42 @@ body {
     .footer-boxes {
         .center-content;
         height: 280px;
-        display: table;
         background-color: @darkest-bg-color;
         border-radius: 30px;
 
         .contact,
         .contact-form {
-            display: table-cell;
-            vertical-align: middle;
-
-            h2 {
-                text-align: center;
-                color: @dark-font-color;
-                background-color: @dark-bg-color;
-                font-size: @font-big;
-                height: 25px;
-                width: 280px;
-                margin: 0 0 0 -100px;
-                -ms-transform: rotate(270deg);  /* IE 9 */
-                -moz-transform: rotate(270deg);  /* Firefox */
-                -webkit-transform: rotate(270deg);  /* Safari and Chrome */
-                -o-transform: rotate(270deg);  /* Opera */
-                transform: rotate(270deg);  /* Opera */
-            }
+            background-position: left;
+            background-repeat: no-repeat;
+            background-color: none;
+            color: @light-font-color;
+            height: 280px;
+            padding-left: 45px;
         }
 
         .contact {
-            width: 300px;
+            font-size: @font-big;
+            width: 255px;
+            float: left;
+            background-image: url("imgs/dane_kontaktowe.png");
+            text-align: center;
+            margin-left: 30px;
+
+            .contact-content {
+                margin-top:50px;
+                width: 235px;
+            }
         }
 
         .contact-form {
-            width: 610px;
+            font-size: @font-medium;
+            float: left;
+            display: inline;
+            width: 510px;
+            background-image: url("imgs/form_kontaktowy.png");
+
+            .contact-form-content {
+            }
         }
     }
 }
