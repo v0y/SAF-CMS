@@ -41,6 +41,6 @@ nosetests.xml
 # project
 app/media
 app/static
-settings_local.py
-force_debug.py
+app/settings/settings_local.py
+app/settings/django_settings_module.py
 *.sqlite3

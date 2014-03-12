@@ -29,7 +29,13 @@ sys.path.insert(0, os.path.join(os.getcwd(), '/site-packages'))
 # same as above but through site (if you installed there via easy_install)
 site.addsitedir(os.path.join(os.getcwd(), '/site-packages'))
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "%s.settings" % app_name)
+# set DJANGO_SETTINGS_MODULE environ variable
+try:
+    from app.settings.django_settings_module import DJANGO_SETTINGS_MODULE
+except ImportError:
+    DJANGO_SETTINGS_MODULE = "%s.settings.default" % app_name
+
+os.environ['DJANGO_SETTINGS_MODULE'] = DJANGO_SETTINGS_MODULE
 
 # need to be imported after setting DJANGO_SETTINGS_MODULE
 import django.core.handlers.wsgi

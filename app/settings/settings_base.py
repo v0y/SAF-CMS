@@ -1,12 +1,6 @@
 from os.path import dirname, join, realpath
 import platform
 
-# import force debug settings
-try:
-    from force_debug import FORCE_DEBUG
-except ImportError:
-    FORCE_DEBUG = False
-
 _current_dir = dirname(realpath(__file__))
 
 
@@ -15,7 +9,7 @@ _current_dir = dirname(realpath(__file__))
 ###############################################################################
 
 IS_PRODUCTION = platform.node().endswith('vipserv.org')
-DEBUG = FORCE_DEBUG or not IS_PRODUCTION
+DEBUG = not IS_PRODUCTION
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -76,7 +70,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    join(_current_dir, '..', 'vendor', 'OSB-CSS'),
+    join(_current_dir, '..', '..', 'vendor', 'OSB-CSS'),
 )
 
 STATICFILES_FINDERS = (
@@ -97,7 +91,7 @@ TEMPLATE_DIRS = (
 # Middleware, installed apps, processors
 ###############################################################################
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = [
     # core
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -109,9 +103,9 @@ MIDDLEWARE_CLASSES = (
 
     # third party
     'themes.middleware.ThemesMiddleware',
-)
+]
 
-TEMPLATE_CONTEXT_PROCESSORS = (
+TEMPLATE_CONTEXT_PROCESSORS = [
     # core
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
@@ -128,7 +122,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     # internal
     'app.pages.context_processors.boxes',
     'app.pages.context_processors.menu'
-)
+]
 
 INSTALLED_APPS = list(filter(None, [
     # core
@@ -143,6 +137,7 @@ INSTALLED_APPS = list(filter(None, [
 
     # third-party
     'debug_toolbar' if DEBUG else None,
+    'fiut',
     'south',
     'themes',
 
@@ -169,10 +164,3 @@ if DEBUG:
     DEBUG_TOOLBAR_CONFIG = {
         'INTERCEPT_REDIRECTS': False
     }
-
-
-# import local settings
-try:
-    from .settings_local import *
-except ImportError:
-    pass
