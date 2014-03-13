@@ -20,6 +20,16 @@
         }
     },
     {
+        "pk": 3,
+        "model": "pages.box",
+        "fields": {
+            "codename": "message_sent",
+            "page": null,
+            "content": "Wiadomość została wysłana!",
+            "content_type": 1
+        }
+    },
+    {
         "pk": 1,
         "model": "pages.menuitem",
         "fields": {

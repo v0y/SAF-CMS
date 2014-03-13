@@ -1,0 +1,19 @@
+{% extends 'shared/base.html' %}
+{% load markup %}
+
+{% block content %}
+	<div class="main-box">
+		<h1>
+			Formularz kontaktowy
+		</h1>
+		<article>
+			<p>
+				{% if boxes.message_sent.is_html %}
+					{{ boxes.message_sent.content|safe }}
+				{% elif boxes.message_sent.is_markdown %}
+					{{ boxes.message_sent.content|markdown }}
+				{% endif %}
+			</p>
+		</article>
+	</div>
+{% endblock %}

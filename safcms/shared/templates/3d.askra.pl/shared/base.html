@@ -108,6 +108,11 @@
 				</div>
 				<div class="contact-form">
 					<div class="contact-form-content">
+						<form action="{% url 'contact_form' %}" method="post">
+							{% csrf_token %}
+							{{ contact_form }}
+							<button type="submit">Wyślij</button>
+						</form>
 					</div>
 				</div>
 			</div>

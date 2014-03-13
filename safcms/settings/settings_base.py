@@ -142,6 +142,7 @@ INSTALLED_APPS = list(filter(None, [
     'themes',
 
     # internal
+    'safcms.mails',
     'safcms.pages',
     'safcms.shared',
 ]))
