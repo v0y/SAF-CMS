@@ -107,13 +107,24 @@
 					</div>
 				</div>
 				<div class="contact-form">
-					<div class="contact-form-content">
-						<form action="{% url 'contact_form' %}" method="post">
-							{% csrf_token %}
-							{{ contact_form }}
+					<form action="{% url 'contact_form' %}" method="post">
+						{% csrf_token %}
+
+						<div class="contact-form-left">
+							<label for="id_name">Imię i nazwisko / Firma:</label><br>
+							<input id="id_name" maxlength="128" name="name" type="text"><br>
+							<label for="id_email">Adres email:</label><br>
+							<input id="id_email" name="email" type="email">
+						</div>
+						<div class="contact-form-right">
+							<label for="id_subject">Temat:</label><br>
+							<input id="id_subject" maxlength="128" name="subject" type="text"><br>
+							<label for="id_text">Treść:</label><br>
+							<textarea id="id_text" name="text"></textarea><br>
 							<button type="submit">Wyślij</button>
-						</form>
-					</div>
+						</div>
+
+					</form>
 				</div>
 			</div>
 		</div>

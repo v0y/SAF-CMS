@@ -45,6 +45,16 @@ body {
   /* W3C */
   font-family: "Verdana", "Arial", "Helvetica", sans-serif;
 }
+button {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  margin-top: 5px;
+  padding: 10px 50px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #2a7fff;
+}
 .header-top {
   width: 910px;
   margin-left: auto;
@@ -199,7 +209,7 @@ body {
   width: 910px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
+  margin-top: 40px;
   display: block;
 }
 .main-box article {
@@ -224,7 +234,8 @@ body {
   width: 910px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
+  margin-top: 40px;
+  margin-bottom: 45px;
 }
 .content-boxes .box-left,
 .content-boxes .box-right {
@@ -235,7 +246,7 @@ body {
   padding: 0;
   margin: 0;
   font-size: 14px;
-  width: 438px;
+  width: 430px;
   height: 500px;
 }
 .content-boxes .box-left article,
@@ -267,7 +278,7 @@ body {
   width: 100%;
   height: 280px;
   background-color: #80b3ff;
-  margin: 30px 0;
+  margin-bottom: 20px;
 }
 .footer .footer-boxes {
   width: 910px;
@@ -275,7 +286,7 @@ body {
   margin-right: auto;
   height: 280px;
   background-color: #000000;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 .footer .footer-boxes .contact,
 .footer .footer-boxes .contact-form {
@@ -288,20 +299,51 @@ body {
 }
 .footer .footer-boxes .contact {
   font-size: 18px;
-  width: 255px;
+  width: 235px;
   float: left;
   background-image: url("imgs/dane_kontaktowe.png");
   text-align: center;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 .footer .footer-boxes .contact .contact-content {
   margin-top: 50px;
-  width: 235px;
+  width: 210px;
 }
 .footer .footer-boxes .contact-form {
-  font-size: 14px;
+  font-size: 12px;
   float: left;
   display: inline;
-  width: 510px;
+  width: 540px;
   background-image: url("imgs/form_kontaktowy.png");
+}
+.footer .footer-boxes .contact-form form {
+  color: #ffffff;
+  margin-top: 20px;
+}
+.footer .footer-boxes .contact-form form .contact-form-left {
+  float: left;
+}
+.footer .footer-boxes .contact-form form .contact-form-left input {
+  width: 185px;
+}
+.footer .footer-boxes .contact-form form .contact-form-right {
+  float: right;
+}
+.footer .footer-boxes .contact-form form .contact-form-right input,
+.footer .footer-boxes .contact-form form .contact-form-right textarea {
+  width: 310px;
+}
+.footer .footer-boxes .contact-form form .contact-form-right textarea {
+  height: 100px;
+}
+.footer .footer-boxes .contact-form form input,
+.footer .footer-boxes .contact-form form textarea {
+  color: #000000;
+  border: 0;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 5px;
+}
+.footer .footer-boxes .contact-form form button {
+  float: right;
 }

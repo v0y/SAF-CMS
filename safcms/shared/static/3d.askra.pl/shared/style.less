@@ -49,7 +49,6 @@
     p+p {
         margin-top: 15px;
     }
-
 }
 
 .box-header {
@@ -81,6 +80,17 @@ body {
     background: -ms-linear-gradient(left, @bg-gradient-start 0%,@bg-gradient-middle 50%,@bg-gradient-start 100%);  /* IE10+ */
     background: linear-gradient(to right, @bg-gradient-start 0%,@bg-gradient-middle 50%,@bg-gradient-start 100%);  /* W3C */
     font-family: @font-family;
+}
+
+button {
+    font-size: @font-medium;
+    font-weight: bold;
+    color: @dark-font-color;
+    margin-top: 5px;
+    padding: 10px 50px;
+    border: 0;
+    border-radius: @border-radius-small;
+    background-color: @dark-bg-color;
 }
 
 .header-top,
@@ -220,7 +230,7 @@ body {
 .main-box {
     .box;
     .center-content;
-    margin-top: 30px;
+    margin-top: 40px;
     display: block;
 
     h1 {
@@ -230,13 +240,14 @@ body {
 
 .content-boxes {
     .center-content;
-    margin-top: 30px;
+    margin-top: 40px;
+    margin-bottom: 45px;
 
     .box-left,
     .box-right {
         .box;
         font-size: @font-medium;
-        width: 438px;
+        width: 430px;
         height: 500px;
 
         h1 {
@@ -253,13 +264,13 @@ body {
     width: 100%;
     height: 280px;
     background-color: @normal-bg-color;
-    margin: 30px 0;
+    margin-bottom: 20px;
 
     .footer-boxes {
         .center-content;
         height: 280px;
         background-color: @darkest-bg-color;
-        border-radius: 30px;
+        border-radius: @border-radius;
 
         .contact,
         .contact-form {
@@ -273,26 +284,62 @@ body {
 
         .contact {
             font-size: @font-big;
-            width: 255px;
+            width: 235px;
             float: left;
             background-image: url("imgs/dane_kontaktowe.png");
             text-align: center;
-            margin-left: 30px;
+            margin-left: 20px;
 
             .contact-content {
                 margin-top:50px;
-                width: 235px;
+                width: 210px;
             }
         }
 
         .contact-form {
-            font-size: @font-medium;
+            font-size: @font-small;
             float: left;
             display: inline;
-            width: 510px;
+            width: 540px;
             background-image: url("imgs/form_kontaktowy.png");
 
-            .contact-form-content {
+            form {
+                color: @light-font-color;
+                margin-top: 20px;
+
+                .contact-form-left {
+                    float: left;
+
+                    input {
+                        width: 185px;
+                    }
+                }
+
+                .contact-form-right {
+                    float: right;
+
+                    input,
+                    textarea {
+                        width: 310px;
+                    }
+
+                    textarea {
+                        height: 100px;
+                    }
+                }
+
+                input,
+                textarea {
+                    color: @dark-font-color;
+                    border: 0;
+                    border-radius: @border-radius-small;
+                    margin: 10px 0;
+                    padding: 5px;
+                }
+
+                button {
+                    float: right;
+                }
             }
         }
     }
