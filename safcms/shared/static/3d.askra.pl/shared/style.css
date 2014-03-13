@@ -55,6 +55,14 @@ button {
   border-radius: 5px;
   background-color: #2a7fff;
 }
+ul {
+  margin: 0;
+  padding-left: 20px;
+}
+ul li {
+  padding: 0;
+  margin: 0;
+}
 .header-top {
   width: 910px;
   margin-left: auto;
@@ -209,6 +217,7 @@ button {
   width: 910px;
   margin-left: auto;
   margin-right: auto;
+  font-size: 12px;
   margin-top: 40px;
   display: block;
 }
@@ -245,7 +254,7 @@ button {
   box-shadow: 5px 5px 10px 0px rgba(50, 50, 50, 0.5);
   padding: 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
   width: 430px;
   height: 500px;
 }
