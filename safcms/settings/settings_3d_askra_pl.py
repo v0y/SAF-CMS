@@ -10,7 +10,7 @@ DEFAULT_THEME = 1
 SITE_ID = 2
 
 TEMPLATE_CONTEXT_PROCESSORS += [
-    'app.mails.context_processors.contact_form',
+    'safcms.mails.context_processors.contact_form',
 ]
 
 

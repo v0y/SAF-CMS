@@ -19,7 +19,7 @@ MANAGERS = ADMINS
 
 ALLOWED_HOSTS = ['*']
 SECRET_KEY = 'qpn8yh!vfg#waky9i+982^qc07u&939yt!52@)2t3sj92%gv$0'
-ROOT_URLCONF = 'app.urls'
+ROOT_URLCONF = 'safcms.urls'
 WSGI_APPLICATION = 'passenger_wsgi.application'
 
 
@@ -120,8 +120,8 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'themes.context_processors.themes',
 
     # internal
-    'app.pages.context_processors.boxes',
-    'app.pages.context_processors.menu'
+    'safcms.pages.context_processors.boxes',
+    'safcms.pages.context_processors.menu'
 ]
 
 INSTALLED_APPS = list(filter(None, [
@@ -142,8 +142,8 @@ INSTALLED_APPS = list(filter(None, [
     'themes',
 
     # internal
-    'app.pages',
-    'app.shared',
+    'safcms.pages',
+    'safcms.shared',
 ]))
 
 

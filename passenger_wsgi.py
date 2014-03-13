@@ -10,7 +10,7 @@ import sys
 show_errors = True
 
 # django app name
-app_name = 'app'
+app_name = 'safcms'
 
 # vipserv.org account login
 account_login = 'mironczyk'
@@ -31,7 +31,7 @@ site.addsitedir(os.path.join(os.getcwd(), '/site-packages'))
 
 # set DJANGO_SETTINGS_MODULE environ variable
 try:
-    from app.settings.django_settings_module import DJANGO_SETTINGS_MODULE
+    from safcms.settings.django_settings_module import DJANGO_SETTINGS_MODULE
 except ImportError:
     DJANGO_SETTINGS_MODULE = "%s.settings.default" % app_name
 

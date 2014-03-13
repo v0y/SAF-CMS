@@ -5,8 +5,8 @@ from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
 from django.db import models
 
-from app.shared.helpers import shorten
-from app.shared.models import NameAbstract, SlugAbstract
+from safcms.shared.helpers import shorten
+from safcms.shared.models import NameAbstract, SlugAbstract
 from .enums import PageContentTypes, CONTENT_TYPE_CHOICES
 
 

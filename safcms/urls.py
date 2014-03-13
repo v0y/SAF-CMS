@@ -13,7 +13,7 @@ urlpatterns = patterns('',
 
     # internal
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('app.pages.urls')),
+    url(r'^', include('safcms.pages.urls')),
 )
 
 

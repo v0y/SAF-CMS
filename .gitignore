@@ -39,8 +39,8 @@ nosetests.xml
 *.swp
 
 # project
-app/media
-app/static
-app/settings/settings_local.py
-app/settings/django_settings_module.py
+safcms/media
+safcms/static
+safcms/settings/settings_local.py
+safcms/settings/django_settings_module.py
 *.sqlite3
