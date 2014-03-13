@@ -5,6 +5,7 @@ from .models import Page
 
 class PageView(DetailView):
     model = Page
+    context_object_name = 'page'
 
     def get_object(self, queryset=None):
         if not self.kwargs['slug']:

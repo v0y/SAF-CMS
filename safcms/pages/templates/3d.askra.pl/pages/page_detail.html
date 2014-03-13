@@ -2,16 +2,16 @@
 {% load markup %}
 
 {% block content %}
-	{% if object.content %}
+	{% if page.content %}
 		<div class="main-box">
 			<h1>
-				{{ object.name }}
+				{{ page.name }}
 			</h1>
 			<article>
-				{% if object.is_html %}
-					{{ object.content|safe }}
-				{% elif object.is_markdown %}
-					{{ object.content|markdown }}
+				{% if page.is_html %}
+					{{ page.content|safe }}
+				{% elif page.is_markdown %}
+					{{ page.content|markdown }}
 				{% endif %}
 			</article>
 		</div>
