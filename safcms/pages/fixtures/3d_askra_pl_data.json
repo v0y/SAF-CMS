@@ -25,7 +25,7 @@
         "fields": {
             "codename": "message_sent",
             "page": null,
-            "content": "Wiadomość została wysłana!",
+            "content": "Wiadomo\u015b\u0107 zosta\u0142a wys\u0142ana!",
             "content_type": 1
         }
     },
