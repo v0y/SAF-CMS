@@ -1,6 +1,9 @@
+from django.conf import settings
+from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
+from fiut.helpers import simple_send_email
 
 from safcms.pages.models import Page
 from .forms import ContactForm
@@ -14,6 +17,25 @@ class ContactFormView(FormView):
     def get_context_data(self, **kwargs):
         kwargs['page'] = Page.get_index()
         return super(ContactFormView, self).get_context_data(**kwargs)
+    
+    def form_valid(self, form):
+        site_name = Site.objects.get_current().name
+        data = form.cleaned_data
+        subject = \
+            "[%s][Formularz kontaktowy] %s" % (site_name, data['subject'])
+        headers = {
+            'From': '"Forularz kontaktowy" <%s>' % settings.DEFAULT_FROM_EMAIL,
+            'Reply-To': '"%s" <%s>' % (data['name'], data['email']),
+        }
+
+        simple_send_email(
+            subject=subject,
+            message=data['text'],
+            recipients=settings.EMAIL_RECIPIENT,
+            headers=headers,
+        )
+
+        return super(ContactFormView, self).form_valid(form)
 
 
 class ContactFormSentView(TemplateView):
