@@ -33,16 +33,22 @@ body {
   background-color: #d4e5ff;
   background: -moz-linear-gradient(left, #f0f6ff 0%, #d4e5ff 50%, #f0f6ff 100%);
   /* FF3.6+ */
+
   background: -webkit-gradient(linear, left top, right top, color-stop(0%, #f0f6ff), color-stop(50%, #d4e5ff), color-stop(100%, #f0f6ff));
   /* Chrome,Safari4+ */
+
   background: -webkit-linear-gradient(left, #f0f6ff 0%, #d4e5ff 50%, #f0f6ff 100%);
   /* Chrome10+,Safari5.1+ */
+
   background: -o-linear-gradient(left, #f0f6ff 0%, #d4e5ff 50%, #f0f6ff 100%);
   /* Opera 11.10+ */
+
   background: -ms-linear-gradient(left, #f0f6ff 0%, #d4e5ff 50%, #f0f6ff 100%);
   /* IE10+ */
+
   background: linear-gradient(to right, #f0f6ff 0%, #d4e5ff 50%, #f0f6ff 100%);
   /* W3C */
+
   font-family: "Verdana", "Arial", "Helvetica", sans-serif;
 }
 button {
@@ -238,6 +244,32 @@ ul li {
   margin: 20px 0 0;
   display: inline-block;
   border-radius: 0 5px 5px 0;
+}
+.contact-form-main form {
+  padding: 15px;
+  text-align: center;
+}
+.contact-form-main form label {
+  font-weight: bold;
+}
+.contact-form-main form input,
+.contact-form-main form textarea {
+  width: 400px;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px 0 10px 0;
+}
+.contact-form-main form textarea {
+  height: 300px;
+}
+.contact-form-main form input.error,
+.contact-form-main form textarea.error {
+  border-color: #dc322f;
+}
+.contact-form-main form .error-message {
+  color: #dc322f;
 }
 .content-boxes {
   width: 910px;
