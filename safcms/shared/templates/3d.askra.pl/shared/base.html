@@ -89,7 +89,14 @@
 				</h1>
 				<article>
 					<p>
+						{% if boxes.projects3d.is_html %}
+							{{ boxes.projects3d.content|safe }}
+						{% elif boxes.projects3d.is_markdown %}
+							{{ boxes.projects3d.content|markdown }}
+						{% endif %}
 					</p>
+
+					<a href="{% url 'order_form' %}" class="button">Zamów wycenę</a>
 				</article>
 			</div>
 		</div>
