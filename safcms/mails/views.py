@@ -80,3 +80,8 @@ class OrderFormView(FormView):
 
 class OrderFormSentView(TemplateView):
     template_name = 'mails/order_form_sent.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['page'] = Page.get_index()
+        return super(OrderFormSentView, self).get_context_data(**kwargs)
+
