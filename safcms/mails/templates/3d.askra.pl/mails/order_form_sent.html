@@ -1,0 +1,19 @@
+{% extends 'shared/base.html' %}
+{% load markup %}
+
+{% block content %}
+	<div class="main-box">
+		<h1>
+			Formularz zamówienia wyceny
+		</h1>
+		<article>
+			<p>
+				{% if boxes.order_sent.is_html %}
+					{{ boxes.order_sent.content|safe }}
+				{% elif boxes.order_sent.is_markdown %}
+					{{ boxes.order_sent.content|markdown }}
+				{% endif %}
+			</p>
+		</article>
+	</div>
+{% endblock %}

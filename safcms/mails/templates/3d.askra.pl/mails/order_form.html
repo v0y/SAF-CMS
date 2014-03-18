@@ -1,0 +1,89 @@
+{% extends 'shared/base.html' %}
+{% load markup %}
+
+{% block content %}
+	<div class="main-box form-main">
+		<h1>
+			Formularz zamówienia wyceny
+		</h1>
+		<form action="" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<label for="id_name">Osoba do kontaktu:</label><br>
+			{% for error in form.name.errors %}
+				<span class="error-message">{{ error }}</span><br>
+			{% endfor %}
+			<input
+				id="id_name" maxlength="128" name="name" type="text"
+				class="{% if form.name.errors %}error{% endif %}"
+				value="{% if form.name.value %}{{ form.name.value }}{% endif %}"><br>
+
+			<label for="id_name">Telefon:</label><br>
+			{% for error in form.phone.errors %}
+				<span class="error-message">{{ error }}</span><br>
+			{% endfor %}
+			<input
+				id="id_phone" maxlength="128" name="phone" type="text"
+				class="{% if form.phone.errors %}error{% endif %}"
+				value="{% if form.phone.value %}{{ form.phone.value }}{% endif %}"><br>
+
+			<label for="id_email">Adres email:</label><br>
+			{% for error in form.email.errors %}
+				<span class="error-message">{{ error }}</span><br>
+			{% endfor %}
+			<input id="id_email" name="email" type="email"
+				class="{% if form.email.errors %}error{% endif %}"
+				value="{% if form.email.value %}{{ form.email.value }}{% endif %}"><br>
+
+			<label for="id_file">Dokumentacja elektroniczna 3D:</label><br>
+			{% for error in form.file.errors %}
+				<span class="error-message">{{ error }}</span><br>
+			{% endfor %}
+			<input id="id_file" name="file" type="file"
+				class="{% if form.file.errors %}error{% endif %}"
+				value="{% if form.file.value %}{{ form.file.value }}{% endif %}"><br>
+
+			<label for="id_color">Kolor:</label><br>
+			{% for error in form.color.errors %}
+				<span class="error-message">{{ error }}</span><br>
+			{% endfor %}
+			<select
+				id="id_color" name="color"
+				class="{% if form.color.errors %}error{% endif %}">
+					<option value="Cielisty #FFF4DB" class="flesh">Cielisty #FFF4DB</option>
+					<option value="Biały #FFFFFF" class="white">Biały #FFFFFF</option>
+					<option value="Niebieski #0063A1" class="blue">Niebieski #0063A1</option>
+					<option value="Żółty #FFF200" class="yellow">Żółty #FFF200</option>
+					<option value="Czarny #00000" class="black">Czarny #000000</option>
+					<option value="Czerwony #ED1D24" class="red">Czerwony #ED1D24</option>
+					<option value="Pomarańczowy #F7941E" class="orange">Pomarańczowy #F7941E</option>
+					<option value="Ciemnozielony #30583B" class="green">Ciemnozielony #30583B</option>
+					<option value="Szaroniebieski #8899A2" class="gray">Szaroniebieski #8899A2</option>
+			</select><br>
+
+			<label for="id_filling">Wypełnienie:</label><br>
+			{% for error in form.filling.errors %}
+				<span class="error-message">{{ error }}</span><br>
+			{% endfor %}
+			<select
+				id="id_filling" name="filling"
+				class="{% if form.filling.errors %}error{% endif %}">
+					<option value="Solid">Solid (pełne) – najtwardsze</option>
+					<option value="Sparse High Density">Sparse High Density (rzadki, wysokiej gęstości)</option>
+					<option value="Sparse Low Density">Sparse Low Density (rzadki, niskiej gęstości) – wypełnienie przypominające plaster miodu</option>
+			</select><br>
+
+			<label for="id_resolution">Rozdzielczość:</label><br>
+			{% for error in form.resolution.errors %}
+				<span class="error-message">{{ error }}</span><br>
+			{% endfor %}
+			<select
+				id="id_resolution" name="resolution"
+				class="{% if form.resolution.errors %}error{% endif %}">
+					<option value="0.254 mm">0.254 mm (0.010 cala)</option>
+					<option value="0.3302 mm">0.3302 mm (0.013 cala)</option>
+			</select><br>
+
+			<button type="submit">Wyślij</button>
+		</form>
+	</div>
+{% endblock %}

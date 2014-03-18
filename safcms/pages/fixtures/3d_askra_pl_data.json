@@ -30,6 +30,16 @@
         }
     },
     {
+        "pk": 4,
+        "model": "pages.box",
+        "fields": {
+            "codename": "order_sent",
+            "page": null,
+            "content": "Wiadomo\u015b\u0107 zosta\u0142a wys\u0142ana!",
+            "content_type": 1
+        }
+    },
+    {
         "pk": 1,
         "model": "pages.menuitem",
         "fields": {

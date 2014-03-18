@@ -2,6 +2,7 @@
 @darkest-bg-color: #000;
 @dark-bg-color: #2A7FFF;
 @normal-bg-color: #80B3FF;
+@dark-bg-active-color: @normal-bg-color;
 @light-bg-color: #D4E5FF;
 @light-bg-color-active: #D7EEF4;
 @lightest-bg-color: #FFF;
@@ -84,7 +85,8 @@ body {
     font-family: @font-family;
 }
 
-button {
+button,
+.button {
     font-size: @font-medium;
     font-weight: bold;
     color: @dark-font-color;
@@ -93,6 +95,12 @@ button {
     border: 0;
     border-radius: @border-radius-small;
     background-color: @dark-bg-color;
+    text-decoration: none;
+}
+
+button:hover,
+.button:hover {
+    background-color: @dark-bg-active-color;
 }
 
 ul {
@@ -251,7 +259,7 @@ ul {
     }
 }
 
-.contact-form-main {
+.form-main {
 
     form {
         padding: 15px;
@@ -262,14 +270,62 @@ ul {
         }
 
         input,
-        textarea {
+        textarea,
+        select {
             width: 400px;
             color: @dark-font-color;
             border: 1px solid @dark-font-color;
             border-radius: @border-radius-small;
             padding: 5px;
             margin: 5px 0 10px 0;
+            background-color: transparent;
         }
+
+        select.color-choice {
+
+        }
+
+        // color choices
+        .flesh {
+            background-color: #FFF4DB;
+        }
+
+        .white {
+            background-color: #FFF;
+        }
+
+        .blue {
+            color: @light-font-color;
+            background-color: #0063A1;
+        }
+
+        .yellow {
+            background-color: #FFF200;
+        }
+
+        .black {
+            color: @light-font-color;
+            background-color: #000;
+        }
+
+        .red {
+            background-color: #ED1D24;
+        }
+
+        .orange {
+            background-color: #F7941E;
+        }
+
+        .green {
+            color: @light-font-color;
+            background-color: #30583B;
+        }
+
+        .gray {
+            color: @light-font-color;
+            background-color: #8899A2;
+        }
+
 
         textarea {
             height: 300px;
@@ -297,6 +353,13 @@ ul {
         font-size: @font-small;
         width: 430px;
         height: 500px;
+        position: relative;
+
+        .button {
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+        }
 
         h1 {
             .box-header;
