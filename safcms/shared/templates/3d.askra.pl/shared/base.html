@@ -1,4 +1,5 @@
 {% load markup %}
+{% load templatetags %}
 
 <!doctype html>
 <html>
@@ -23,13 +24,14 @@
 				<div class="box-menu">
 					<ul>
 						<a href="{{ menu.0.get_absolute_url }}">
-							<li>
+							<li class="
+								{% is_active_tab request menu.0.get_absolute_url %}">
 								{{ menu.0 }}
 							</li>
 						</a>
 						{% for level1 in menu.1 %}
 							<a href="{{ level1.0.get_absolute_url }}">
-								<li>
+								<li class="{% is_active_tab request level1.0.get_absolute_url %}">
 									{{ level1.0 }}
 								</li>
 							</a>
