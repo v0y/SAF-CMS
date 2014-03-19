@@ -24,7 +24,7 @@ class ContactFormView(FormView):
         subject = \
             "[%s] Formularz kontaktowy: %s" % (site_name, data['subject'])
         headers = {
-            'From': '"Forularz kontaktowy" <%s>' % settings.DEFAULT_FROM_EMAIL,
+            'From': '"Formularz kontaktowy" <%s>' % settings.DEFAULT_FROM_EMAIL,
             'Reply-To': '"%s" <%s>' % (data['name'], data['email']),
         }
 
@@ -62,7 +62,7 @@ class OrderFormView(FormView):
         subject = \
             "[%s] Formularz zamówienia" % site_name
         headers = {
-            'From': '"Forularz zamówienia" <%s>' % settings.DEFAULT_FROM_EMAIL,
+            'From': '"Formularz zamówienia" <%s>' % settings.DEFAULT_FROM_EMAIL,
             'Reply-To': '"%s" <%s>' % (data.get('name', ''), data['email']),
         }
 
