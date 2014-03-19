@@ -33,22 +33,16 @@ body {
   background-color: #d4e5ff;
   background: -moz-linear-gradient(left, #f0f6ff 0%, #d4e5ff 50%, #f0f6ff 100%);
   /* FF3.6+ */
-
   background: -webkit-gradient(linear, left top, right top, color-stop(0%, #f0f6ff), color-stop(50%, #d4e5ff), color-stop(100%, #f0f6ff));
   /* Chrome,Safari4+ */
-
   background: -webkit-linear-gradient(left, #f0f6ff 0%, #d4e5ff 50%, #f0f6ff 100%);
   /* Chrome10+,Safari5.1+ */
-
   background: -o-linear-gradient(left, #f0f6ff 0%, #d4e5ff 50%, #f0f6ff 100%);
   /* Opera 11.10+ */
-
   background: -ms-linear-gradient(left, #f0f6ff 0%, #d4e5ff 50%, #f0f6ff 100%);
   /* IE10+ */
-
   background: linear-gradient(to right, #f0f6ff 0%, #d4e5ff 50%, #f0f6ff 100%);
   /* W3C */
-
   font-family: "Verdana", "Arial", "Helvetica", sans-serif;
 }
 button,
@@ -316,6 +310,7 @@ ul li {
   margin-right: auto;
   margin-top: 40px;
   margin-bottom: 45px;
+  height: 500px;
 }
 .content-boxes .box-left,
 .content-boxes .box-right {
@@ -358,6 +353,9 @@ ul li {
   display: inline-block;
   border-radius: 0 5px 5px 0;
 }
+.content-boxes .box-left {
+  float: left;
+}
 .content-boxes .box-right {
   float: right;
 }
@@ -366,6 +364,7 @@ ul li {
   height: 280px;
   background-color: #80b3ff;
   margin-bottom: 20px;
+  clear: both;
 }
 .footer .footer-boxes {
   width: 910px;
