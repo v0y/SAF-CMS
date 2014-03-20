@@ -4,6 +4,7 @@
         "model": "pages.box",
         "fields": {
             "codename": "contact",
+            "name": "Dane kontaktowe",
             "page": null,
             "content": "**Askra sp. z o.o.**\r\nul. Cypryjska 6/69\r\n02-768 Warszawa\r\n\r\n\r\nTel.: 601-789-500\r\n\r\nemail: askra@askra.pl",
             "content_type": 1
@@ -14,6 +15,7 @@
         "model": "pages.box",
         "fields": {
             "codename": "prints3d",
+            "name": "Wydruki 3D",
             "page": null,
             "content": "Drukujemy na drukarkach uPrint SE Plus w 9 kolorach.\r\nParametry wydruku:\r\n\r\n- Rozdzielczo\u015b\u0107 warstw: 0.254 mm (0.010 cala) , 0.3302 mm (0.013 cala)\r\n- Minimalna grubo\u015b\u0107 \u015bcianki: 0.914 mm (0.036 cala) , 1.194 mm (0.047 cala)\r\n- Wype\u0142nienie:\r\n    - Solid (pe\u0142ne) \u2013 najtwardsze\r\n    - Sparse High Density (rzadki, wysokiej g\u0119sto\u015bci)\r\n    - Sparse Low Density (rzadki, niskiej g\u0119sto\u015bci) \u2013 wype\u0142nienie przypominaj\u0105ce plaster miodu\r\n\r\n- Maksymalne wymiary wydruku: 203 x 203 x 152 mm (8 x 8 x 6 cali)",
             "content_type": 1
@@ -24,6 +26,7 @@
         "model": "pages.box",
         "fields": {
             "codename": "message_sent",
+            "name": "Formularz kontaktowy wys\u0142any - komunikat",
             "page": null,
             "content": "Wiadomo\u015b\u0107 zosta\u0142a wys\u0142ana!",
             "content_type": 1
@@ -34,6 +37,7 @@
         "model": "pages.box",
         "fields": {
             "codename": "order_sent",
+            "name": "Formularz zam\u00f3wienia wys\u0142any - komunikat",
             "page": null,
             "content": "Wiadomo\u015b\u0107 zosta\u0142a wys\u0142ana!",
             "content_type": 1
@@ -44,6 +48,7 @@
         "model": "pages.box",
         "fields": {
             "codename": "projects3d",
+            "name": "Projektowanie 3D",
             "page": null,
             "content": "TODO",
             "content_type": 1
@@ -53,8 +58,8 @@
         "pk": 1,
         "model": "pages.menuitem",
         "fields": {
-            "name": "Jak dzia\u0142amy?",
             "is_active": true,
+            "name": "Jak dzia\u0142amy?",
             "parent": null,
             "page": 1
         }
@@ -63,8 +68,8 @@
         "pk": 3,
         "model": "pages.menuitem",
         "fields": {
-            "name": "O firmie",
             "is_active": true,
+            "name": "O firmie",
             "parent": 1,
             "page": 3
         }
@@ -73,8 +78,8 @@
         "pk": 4,
         "model": "pages.menuitem",
         "fields": {
-            "name": "Regulamin",
             "is_active": false,
+            "name": "Regulamin",
             "parent": 1,
             "page": 4
         }
@@ -83,8 +88,8 @@
         "pk": 5,
         "model": "pages.menuitem",
         "fields": {
-            "name": "Realizacje",
             "is_active": false,
+            "name": "Realizacje",
             "parent": 1,
             "page": 5
         }
@@ -93,44 +98,44 @@
         "pk": 1,
         "model": "pages.page",
         "fields": {
+            "content_type": 1,
+            "slug": "jak-dzialamy",
             "name": "Jak dzia\u0142amy?",
             "content": "",
-            "short": "Od pomys\u0142u do prototypu przygotowawczego (projekt, i produkcji. model 3D. Us\u0142ugi Druk 3D, w ka\u017cdej dokumenty fazie procesu konstrukcyjne i technologiczne)",
-            "content_type": 1,
-            "slug": "jak-dzialamy"
+            "short": "Od pomys\u0142u do prototypu przygotowawczego (projekt, i produkcji. model 3D. Us\u0142ugi Druk 3D, w ka\u017cdej dokumenty fazie procesu konstrukcyjne i technologiczne)"
         }
     },
     {
         "pk": 3,
         "model": "pages.page",
         "fields": {
+            "content_type": 1,
+            "slug": "o-firmie",
             "name": "O firmie",
             "content": "Firma Askra funkcjonuje na polskim rynku od 1995 roku. Zajmujemy si\u0119 projektowaniem i wykonawstwem maszyn i urz\u0105dze\u0144, wyrob\u00f3w z metalu i tworzyw sztucznych. Nasze wieloletnie do\u015bwiadczenie wykorzystujemy w \u015bwiadczeniu kompleksowych us\u0142ug w zakresie modelowania i drukowania 3D:\r\n\r\n- projektowanie modeli 3D na podstawie rysunk\u00f3w lub opisu\r\n- drukowanie 3D w technologii FDM na profesjonalnej drukarce firmySTRATASYS z dostarczonego nam pliku w formacie *.stl\r\n- wytwarzanie kr\u00f3tkich serii produkcyjnych\r\n\r\nGwarantujemy wysok\u0105 dok\u0142adno\u015b\u0107 wydruku z termoplastycznego tworzywa ABS najwy\u017cszej jako\u015bci, z mo\u017cliwo\u015bci\u0105 wyboru koloru. \r\n\r\nMamy du\u017c\u0105 praktyk\u0119 w konstruowaniu form wtryskowych. W przypadku prototypu cz\u0119\u015bci, kt\u00f3rej produkcja ma si\u0119 odbywa\u0107 w technologii wtryskowej, mo\u017cemy pom\u00f3c w dostosowaniu budowy cz\u0119\u015bci do wymog\u00f3w technicznych koniecznych przy stosowaniu tej technologii, oraz konstruowaniu i wykonaniu formy. \r\nPracujemy w programie Catia-V5, uznawanym za najefektywniejszy program CAD. Pozwala nam to na stosowanie konkurencyjnych cen na nasze us\u0142ugi.\r\n\r\nNIE SZUKAJ DALEJ! JESTE\u015a NA DOBREJ STRONIE!",
-            "short": "Firma Askra funkcjonuje na polskim rynku od 1995 roku. Zajmujemy si\u0119 projektowaniem i wykonawstwem maszyn i urz\u0105dze\u0144, wyrob\u00f3w z metalu i tworzyw sztucznych. Nasze wieloletnie do\u015bwiadczenie wykorzystujemy w \u015bwiadczeniu kompleksowych us\u0142ug w zakresie modelowania i drukowania 3D.",
-            "content_type": 1,
-            "slug": "o-firmie"
+            "short": "Firma Askra funkcjonuje na polskim rynku od 1995 roku. Zajmujemy si\u0119 projektowaniem i wykonawstwem maszyn i urz\u0105dze\u0144, wyrob\u00f3w z metalu i tworzyw sztucznych. Nasze wieloletnie do\u015bwiadczenie wykorzystujemy w \u015bwiadczeniu kompleksowych us\u0142ug w zakresie modelowania i drukowania 3D."
         }
     },
     {
         "pk": 4,
         "model": "pages.page",
         "fields": {
+            "content_type": 1,
+            "slug": "regulamin",
             "name": "Regulamin",
             "content": "",
-            "short": "",
-            "content_type": 1,
-            "slug": "regulamin"
+            "short": ""
         }
     },
     {
         "pk": 5,
         "model": "pages.page",
         "fields": {
+            "content_type": 1,
+            "slug": "realizacje",
             "name": "Realizacje",
             "content": "",
-            "short": "",
-            "content_type": 1,
-            "slug": "realizacje"
+            "short": ""
         }
     }
 ]

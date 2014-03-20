@@ -13,13 +13,14 @@ from .enums import PageContentTypes, CONTENT_TYPE_CHOICES
 class Box(models.Model):
     page = models.ForeignKey(
         'Page', related_name='boxes', blank=True, null=True)
+    name = models.CharField(blank=True, max_length=128)
     codename = models.SlugField(unique=True)
     content = models.TextField()
     content_type = models.IntegerField(
         choices=CONTENT_TYPE_CHOICES, verbose_name='content type', default=1)
 
     def __unicode__(self):
-        return self.codename
+        return self.name or self.codename
 
     @property
     def is_html(self):
