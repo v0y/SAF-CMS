@@ -14,5 +14,13 @@
         },
         "pk": 2,
         "model": "sites.site"
+    },
+    {
+        "pk": 1,
+        "fields": {
+            "name": "User",
+            "permissions": [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+        },
+        "model": "auth.group"
     }
 ]
