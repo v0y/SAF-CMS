@@ -6,8 +6,22 @@ setup() {
     cd $REMOTE
 }
 
+deploy() {
+    git pull
+    git submodule init
+    git submodule update
+    ./manage.py syncdb --noinput
+    ./manage.py migrate
+    ./manage.py collectstatic --noinput
+    restart
+}
+
+managepy() {
+    ./manage.py $@
+}
+
 restart() {
-    touch tmp/restart.txt 
+    touch tmp/restart.txt
 }
 
 update_python() {
