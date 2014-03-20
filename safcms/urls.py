@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
+from django.views.generic import RedirectView
 
 from django.contrib import admin
 
@@ -17,6 +18,9 @@ urlpatterns = patterns('',
     url(r'^', include('safcms.pages.urls')),
 )
 
+# redirect to right page even if user used appending slash
+urlpatterns += patterns('',
+    ('^(?P<x>.+)/$', RedirectView.as_view(url='/%(x)s', permanent=True)))
 
 if settings.DEBUG:
     urlpatterns += \
