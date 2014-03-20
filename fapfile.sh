@@ -7,6 +7,7 @@ setup() {
 }
 
 deploy() {
+    git stash
     git pull
     git submodule init
     git submodule update
@@ -25,6 +26,7 @@ restart() {
 }
 
 update_python() {
+    git stash
     git pull
     restart
 }
