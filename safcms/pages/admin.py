@@ -4,7 +4,16 @@ from .models import Box, Image, MenuItem, Page
 
 
 class BoxAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__',)
+    list_display = ('__unicode__', 'codename',)
+    fieldsets = (
+        (None, {
+            'fields': ('page', 'name', 'content')
+        }),
+        ('Advanced', {
+            'classes': ('collapse',),
+            'fields': ('codename', 'content_type')
+        }),
+    )
 admin.site.register(Box, BoxAdmin)
 
 
@@ -31,7 +40,7 @@ class MenuItemInline(admin.TabularInline):
 
 
 class PageAdmin(admin.ModelAdmin):
-    inlines = [MenuItemInline, BoxIneline, ImageInline]
+    inlines = [MenuItemInline, ImageInline, BoxIneline]
     list_display = ('name',)
     fieldsets = (
         (None, {
