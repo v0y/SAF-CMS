@@ -49,7 +49,7 @@ class ContactFormSentView(TemplateView):
 
 class PrintOrderFormView(FormView):
     form_class = PrintOrderForm
-    success_url = reverse_lazy('order_form_sent')
+    success_url = reverse_lazy('print_order_form_sent')
     template_name = 'mails/print_order_form.html'
 
     def get_context_data(self, **kwargs):
@@ -90,7 +90,7 @@ class PrintOrderFormSentView(TemplateView):
 
 class ProjectFormView(FormView):
     form_class = ProjectOrderForm
-    success_url = reverse_lazy('order_form_sent')
+    success_url = reverse_lazy('project_order_form_sent')
     template_name = 'mails/project_order_form.html'
 
     def get_context_data(self, **kwargs):

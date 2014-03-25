@@ -14,7 +14,7 @@ class ContactForm(forms.Form):
     text = forms.CharField(widget=forms.Textarea, required=True)
 
 
-class BaseOrderForm(object):
+class BaseOrderForm(forms.Form):
     name = forms.CharField(max_length=128, required=False)
     phone = forms.CharField(max_length=128, required=False)
     email = forms.EmailField(
@@ -62,5 +62,6 @@ class ProjectOrderForm(BaseOrderForm, forms.Form):
 
     def clean(self):
         cd = self.cleaned_data
-        if not any([cd.form1, cd.form2, cd.form3, cd.form4]):
+        if not any([cd['file1'], cd['file2'], cd['file3'], cd['file4']]):
             raise forms.ValidationError(UPLOAD_ANY_FILE)
+        return cd
