@@ -1,8 +1,8 @@
 from django.conf.urls import patterns, url
 
 from ..views import (
-    ContactFormSentView, ContactFormView, OrderFormSentView, OrderFormView,
-    ProjectFormSentView)
+    ContactFormSentView, ContactFormView, PrintOrderFormSentView,
+    PrintOrderFormView, ProjectFormView, ProjectFormSentView)
 
 
 urlpatterns = patterns('',
@@ -13,11 +13,14 @@ urlpatterns = patterns('',
         ContactFormSentView.as_view(), name='contact_form_sent'),
 
     # print 3D
-    url(r'^zamowenie/wydruk$', OrderFormView.as_view(), name='order_form'),
+    url(r'^zamowenie/wydruk$', PrintOrderFormView.as_view(),
+        name='print_order_form'),
     url(r'^zamowenie/wydruk/wyslany$',
-        OrderFormSentView.as_view(), name='order_form_sent'),
+        PrintOrderFormSentView.as_view(), name='print_order_form_sent'),
 
     # project 3D
+    url(r'^zamowenie/projekt$', ProjectFormView.as_view(),
+        name='project_order_form'),
     url(r'^zamowenie/projekt/wyslany$',
-        ProjectFormSentView.as_view(), name='project_form_sent'),
+        ProjectFormSentView.as_view(), name='project_order_form_sent'),
 )

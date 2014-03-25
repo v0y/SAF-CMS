@@ -53,7 +53,7 @@ class PrintOrderForm(BaseOrderForm, forms.Form):
     resolution = forms.ChoiceField(required=True, choices=RESOLUTION_CHOICES)
 
 
-class ProjectsOrderForm(BaseOrderForm, forms.Form):
+class ProjectOrderForm(BaseOrderForm, forms.Form):
     file1 = forms.FileField(required=False)
     file2 = forms.FileField(required=False)
     file3 = forms.FileField(required=False)

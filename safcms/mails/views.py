@@ -6,7 +6,7 @@ from django.views.generic.edit import FormView
 from fiut.helpers import simple_send_email
 
 from safcms.pages.models import Page
-from .forms import ContactForm, PrintOrderForm
+from .forms import ContactForm, PrintOrderForm, ProjectOrderForm
 
 
 class ContactFormView(FormView):
@@ -24,7 +24,8 @@ class ContactFormView(FormView):
         subject = \
             "[%s] Formularz kontaktowy: %s" % (site_name, data['subject'])
         headers = {
-            'From': '"Formularz kontaktowy" <%s>' % settings.DEFAULT_FROM_EMAIL,
+            'From': '"Formularz kontaktowy" <%s>' %
+                settings.DEFAULT_FROM_EMAIL,
             'Reply-To': '"%s" <%s>' % (data['name'], data['email']),
         }
 
@@ -46,48 +47,82 @@ class ContactFormSentView(TemplateView):
         return super(ContactFormSentView, self).get_context_data(**kwargs)
 
 
-class OrderFormView(FormView):
+class PrintOrderFormView(FormView):
     form_class = PrintOrderForm
     success_url = reverse_lazy('order_form_sent')
-    template_name = 'mails/order_form.html'
+    template_name = 'mails/print_order_form.html'
 
     def get_context_data(self, **kwargs):
         kwargs['page'] = Page.get_index()
-        return super(OrderFormView, self).get_context_data(**kwargs)
+        return super(PrintOrderFormView, self).get_context_data(**kwargs)
 
     def form_valid(self, form):
         site_name = Site.objects.get_current().name
         data = form.data
 
         subject = \
-            "[%s] Formularz zamówienia" % site_name
+            "[%s] Formularz zamówienia wydruku" % site_name
         headers = {
-            'From': '"Formularz zamówienia" <%s>' % settings.DEFAULT_FROM_EMAIL,
+            'From': '"Formularz zamówienia wydruku" <%s>' %
+                settings.DEFAULT_FROM_EMAIL,
             'Reply-To': '"%s" <%s>' % (data.get('name', ''), data['email']),
         }
 
         simple_send_email(
             subject=subject,
-            message='mails/order_form_mail_content.txt',
+            message='mails/print_order_form_mail_content.txt',
             recipients=settings.EMAIL_RECIPIENT,
             headers=headers,
             attachments=dict(form.files),
             message_data=data,
         )
 
-        return super(OrderFormView, self).form_valid(form)
+        return super(PrintOrderFormView, self).form_valid(form)
 
 
-class OrderFormSentView(TemplateView):
-    template_name = 'mails/order_form_sent.html'
+class PrintOrderFormSentView(TemplateView):
+    template_name = 'mails/print_order_form_sent.html'
 
     def get_context_data(self, **kwargs):
         kwargs['page'] = Page.get_index()
-        return super(OrderFormSentView, self).get_context_data(**kwargs)
+        return super(PrintOrderFormSentView, self).get_context_data(**kwargs)
+
+
+class ProjectFormView(FormView):
+    form_class = ProjectOrderForm
+    success_url = reverse_lazy('order_form_sent')
+    template_name = 'mails/project_order_form.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['page'] = Page.get_index()
+        return super(ProjectFormView, self).get_context_data(**kwargs)
+
+    def form_valid(self, form):
+        site_name = Site.objects.get_current().name
+        data = form.data
+
+        subject = \
+            "[%s] Formularz zamówienia projektu" % site_name
+        headers = {
+            'From': '"Formularz zamówienia projektu" <%s>' %
+                    settings.DEFAULT_FROM_EMAIL,
+            'Reply-To': '"%s" <%s>' % (data.get('name', ''), data['email']),
+        }
+
+        simple_send_email(
+            subject=subject,
+            message='mails/print_order_form_mail_content.txt',
+            recipients=settings.EMAIL_RECIPIENT,
+            headers=headers,
+            attachments=dict(form.files),
+            message_data=data,
+        )
+
+        return super(ProjectFormView, self).form_valid(form)
 
 
 class ProjectFormSentView(TemplateView):
-    template_name = 'mails/project_form_sent.html'
+    template_name = 'mails/project_order_form_sent.html'
 
     def get_context_data(self, **kwargs):
         kwargs['page'] = Page.get_index()
