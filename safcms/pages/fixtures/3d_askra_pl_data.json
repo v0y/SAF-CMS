@@ -37,7 +37,7 @@
         "model": "pages.box",
         "fields": {
             "codename": "order_sent",
-            "name": "Formularz zam\u00f3wienia wys\u0142any - komunikat",
+            "name": "Formularz zam\u00f3wienia wydruku wys\u0142any - komunikat",
             "page": null,
             "content": "Wiadomo\u015b\u0107 zosta\u0142a wys\u0142ana!",
             "content_type": 1
@@ -51,6 +51,17 @@
             "name": "Projektowanie 3D",
             "page": null,
             "content": "TODO",
+            "content_type": 1
+        }
+    },
+    {
+        "pk": 6,
+        "model": "pages.box",
+        "fields": {
+            "codename": "project_sent",
+            "name": "Formularz zam\u00f3wienia projektu wys\u0142any - komunikat",
+            "page": null,
+            "content": "Wiadomo\u015b\u0107 zosta\u0142a wys\u0142ana!",
             "content_type": 1
         }
     },
