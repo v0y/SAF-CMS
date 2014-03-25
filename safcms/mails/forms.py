@@ -13,7 +13,14 @@ class ContactForm(forms.Form):
     text = forms.CharField(widget=forms.Textarea, required=True)
 
 
-class PrintOrderForm(forms.Form):
+class BaseOrderForm(object):
+    name = forms.CharField(max_length=128, required=False)
+    phone = forms.CharField(max_length=128, required=False)
+    email = forms.EmailField(
+        required=True, error_messages={'invalid': EMAIL_INVALID_MSG})
+
+
+class PrintOrderForm(BaseOrderForm, forms.Form):
     COLOR_CHOICES = (
         ('Cielisty #FFF4DB', 'Cielisty #FFF4DB'),
         ('Biały #FFFFFF', 'Biały #FFFFFF'),
@@ -27,7 +34,8 @@ class PrintOrderForm(forms.Form):
     )
     FILLING_CHOICES = (
         ('Solid', 'Solid (pełne) – najtwardsze'),
-        ('Sparse High Density', 'Sparse High Density (rzadki, wysokiej gęstości)'),
+        ('Sparse High Density',
+            'Sparse High Density (rzadki, wysokiej gęstości)'),
         ('Sparse Low Density',
             'Sparse Low Density (rzadki, niskiej gęstości) – wypełnienie '
             'przypominające plaster miodu')
@@ -37,11 +45,6 @@ class PrintOrderForm(forms.Form):
         ('0.3302 mm', '0.3302 mm (0.013 cala)')
     )
 
-    name = forms.CharField(max_length=128, required=False)
-    phone = forms.CharField(max_length=128, required=False)
-    email = forms.EmailField(
-        required=True,
-        error_messages={'invalid': EMAIL_INVALID_MSG})
     file = forms.FileField(required=True)
     color = forms.ChoiceField(
         required=True, choices=COLOR_CHOICES)
