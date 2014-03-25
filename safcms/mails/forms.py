@@ -2,6 +2,7 @@ from django import forms
 
 
 EMAIL_INVALID_MSG = "Podaj poprawny adres email"
+UPLOAD_ANY_FILE = "Musisz wgrać conajmniej jeden plik"
 
 
 class ContactForm(forms.Form):
@@ -50,3 +51,16 @@ class PrintOrderForm(BaseOrderForm, forms.Form):
         required=True, choices=COLOR_CHOICES)
     filling = forms.ChoiceField(required=True, choices=FILLING_CHOICES)
     resolution = forms.ChoiceField(required=True, choices=RESOLUTION_CHOICES)
+
+
+class ProjectsOrderForm(BaseOrderForm, forms.Form):
+    file1 = forms.FileField(required=False)
+    file2 = forms.FileField(required=False)
+    file3 = forms.FileField(required=False)
+    file4 = forms.FileField(required=False)
+    description = forms.CharField(widget=forms.Textarea, required=False)
+
+    def clean(self):
+        cd = self.cleaned_data
+        if not any([cd.form1, cd.form2, cd.form3, cd.form4]):
+            raise forms.ValidationError(UPLOAD_ANY_FILE)
