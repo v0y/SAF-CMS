@@ -14,9 +14,14 @@ urlpatterns = patterns('',
 
     # internal
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('safcms.mails.urls')),
     url(r'^', include('safcms.pages.urls')),
 )
+
+# urls for 3d.askra.pl
+if settings.SITE_ID == 2:
+    urlpatterns += patterns('',
+        url(r'^formularz/', include('safcms.mails.urls.d_askra_pl')),
+    )
 
 # redirect to right page even if user used appending slash
 urlpatterns += patterns('',
