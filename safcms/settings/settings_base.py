@@ -62,10 +62,10 @@ TIME_INPUT_FORMATS = (
 # Staticfiles/media/templates settings
 ###############################################################################
 
-MEDIA_ROOT = join(_current_dir, 'media')
+MEDIA_ROOT = join(_current_dir, '..', '..', 'public', 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = join(_current_dir, '..', 'public', 'static')
+STATIC_ROOT = join(_current_dir, '..', '..', 'public', 'static')
 STATIC_URL = '/static/'
 
 # Additional locations of static files
