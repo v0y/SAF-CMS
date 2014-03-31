@@ -24,11 +24,6 @@
   display: inline-block;
   border-radius: 0 5px 5px 0;
 }
-.center-content {
-  width: 910px;
-  margin-left: auto;
-  margin-right: auto;
-}
 body {
   background-color: #d4e5ff;
   background: -moz-linear-gradient(left, #f0f6ff 0%, #d4e5ff 50%, #f0f6ff 100%);
@@ -324,7 +319,7 @@ ul li {
   color: #dc322f;
 }
 .content-boxes {
-  width: 910px;
+  width: 890px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
@@ -340,7 +335,7 @@ ul li {
   padding: 0;
   margin: 0;
   font-size: 12px;
-  width: 430px;
+  width: 420px;
   height: 500px;
   position: relative;
 }
