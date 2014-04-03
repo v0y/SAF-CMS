@@ -204,32 +204,23 @@ ul {
             width: 610px;
             margin-top: -160px;
 
-            h1 {
-                font-size: @font-small;
-                font-weight: bold;
-                margin: 10px 10px 5px;
-            }
+            div {
+                height: 160px;
+                display: table-cell;
+                vertical-align: middle;
 
-            p {
-                font-size: @font-small;
-                text-align: left;
-                padding: 5px 10px 10px;
-            }
+                h1 {
+                    font-size: @font-small;
+                    font-weight: bold;
+                    margin: 10px 10px 5px;
+                }
 
-            a.read-more {
-                font-size: @font-small;
-                color: @light-font-color;
-                text-decoration: none;
-                background-color: @dark-bg-color;
-                border-radius: @border-radius-small;
-                padding:5px 10px;
-                position: absolute;
-                right: 10px;
-                bottom: 10px;
-            }
+                p {
+                    font-size: @font-small;
+                    text-align: justify;
+                    padding: 5px 10px 10px;
+                }
 
-            a.read-more:hover {
-                background-color: @normal-bg-color;
             }
         }
     }
@@ -268,6 +259,7 @@ ul {
     font-size: @font-small;
     margin-top: 40px;
     display: block;
+    text-align: justify;
 
     h1 {
         .box-header;
@@ -370,6 +362,7 @@ ul {
         width: 420px;
         height: 500px;
         position: relative;
+        text-align: justify;
 
         .button {
             position: absolute;
