@@ -232,6 +232,7 @@ ul li {
   margin-top: 40px;
   display: block;
   text-align: justify;
+  position: relative;
 }
 .main-box article {
   padding: 15px;
@@ -250,6 +251,12 @@ ul li {
   margin: 20px 0 0;
   display: inline-block;
   border-radius: 0 5px 5px 0;
+}
+.main-box a.close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  color: #000000;
 }
 .form-main form {
   padding: 15px;
