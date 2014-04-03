@@ -1,0 +1,13 @@
+Osoba do kontaktu:
+{{ name }}
+
+Telefon:
+{{ phone }}
+
+Email:
+{{ email }}
+
+Opis / więcej informacji:
+{{ description }}
+
+Pliki w załączniku

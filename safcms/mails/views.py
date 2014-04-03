@@ -111,7 +111,7 @@ class ProjectFormView(FormView):
 
         simple_send_email(
             subject=subject,
-            message='mails/print_order_form_mail_content.txt',
+            message='mails/project_order_form_mail_content.txt',
             recipients=settings.EMAIL_RECIPIENT,
             headers=headers,
             attachments=dict(form.files),
