@@ -4,5 +4,5 @@ Markdown==2.3.1
 pillow==2.3
 south==0.8.4
 
-git+git://github.com/v0y/django-FIUT.git@0bd0c584152d313b49f6b622dbc3317f39012163
+git+git://github.com/v0y/django-FIUT.git@7de27ddb198356849c2188a3888e4c326b9bd6de
 git+git://github.com/ilblackdragon/django-themes.git@5756fc02d74014fda11754ed72d56328e2eee9b9
