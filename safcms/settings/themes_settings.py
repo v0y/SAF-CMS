@@ -15,6 +15,13 @@ THEMES = ({
     'screenshot': '',
     'template_dir': '3d.askra.pl',
     'static_url': '/static/3d.askra.pl/',
+},
+{
+    'name': 'lolwtf.pl',
+    'description': 'Theme for lolwtf.pl site',
+    'screenshot': '',
+    'template_dir': 'lolwtf.pl',
+    'static_url': '/static/lolwtf.pl/',
 })
 
 DEFAULT_THEME = 0

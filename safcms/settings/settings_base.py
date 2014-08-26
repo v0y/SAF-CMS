@@ -43,6 +43,7 @@ LANGUAGE_CODE = 'pl'
 
 # 1 - default
 # 2 - 3d.askra.pl
+# 3 - lolwtf.pl
 SITE_ID = 1
 
 USE_I18N = True
