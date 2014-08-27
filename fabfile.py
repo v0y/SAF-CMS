@@ -1,7 +1,9 @@
-from fabric.api import cd, env, execute, prefix, run, task
+from fabric.api import cd, env, execute, prefix, run, shell_env, task
 
 
+env.project_name = None
 env.project_root = None
+env.settings_module = None
 env.venv_path = None
 env.user = 'deployer'
 env.host_string = 'lolwtf.pl'
@@ -26,6 +28,18 @@ def project(name):
     env.venv_path = '/var/lib/virtualenv/%s/production/bin/activate' % name
     env.project_name = name
 
+    env.settings_module = {
+        'lolwtf.pl': 'safcms.settings.settings_lolwtf_pl'
+    }[name]
+
+
+@task
+def pyc():
+    """
+    Remove *.pyc files
+    """
+    run('find . -name "*.pyc" -delete')
+
 
 @task
 def deploy(branch='master'):
@@ -34,14 +48,21 @@ def deploy(branch='master'):
     """
     assert env.project_root, PROJECT_NOT_SET_ERROR_MSG
     assert env.venv_path, PROJECT_NOT_SET_ERROR_MSG
+    assert env.settings_module, PROJECT_NOT_SET_ERROR_MSG
 
-    with cd(env.project_root), prefix('source %s' % env.venv_path):
-        run('git pull')
+    with cd(env.project_root), \
+            prefix('source %s' % env.venv_path), \
+            shell_env(DJANGO_SETTINGS_MODULE=env.settings_module):
+
+        execute(pyc)
+        run('pip install -r requirements.txt')
+        run('git reset --hard')
+        run('git pull --force origin %s' % branch)
         run('git submodule init')
-        run('git submodule update')
+        run('git submodule update --force')
         run('./manage.py syncdb --noinput')
         run('./manage.py migrate --noinput')
-        run('./manage.py collectstatic -l --noinput')
+        run('./manage.py collectstatic --noinput')
         execute(restart)
 
 
