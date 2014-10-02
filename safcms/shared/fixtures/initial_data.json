@@ -16,6 +16,14 @@
         "model": "sites.site"
     },
     {
+        "fields": {
+            "name": "lolwtf.pl",
+            "domain": "lolwtf.pl"
+        },
+        "pk": 3,
+        "model": "sites.site"
+    },
+    {
         "pk": 1,
         "fields": {
             "name": "User",
