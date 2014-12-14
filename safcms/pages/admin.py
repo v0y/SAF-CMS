@@ -4,7 +4,7 @@ from .models import Box, Image, MenuItem, Page
 
 
 class BoxAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'codename',)
+    list_display = ('__str__', 'codename',)
     fieldsets = (
         (None, {
             'fields': ('page', 'name', 'content')
@@ -22,7 +22,7 @@ class BoxIneline(admin.TabularInline):
 
 
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__',)
+    list_display = ('__str__',)
 admin.site.register(Image, ImageAdmin)
 
 
