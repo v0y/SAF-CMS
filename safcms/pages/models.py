@@ -19,7 +19,7 @@ class Box(models.Model):
     content_type = models.IntegerField(
         choices=CONTENT_TYPE_CHOICES, verbose_name='content type', default=1)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name or self.codename
 
     @property
@@ -46,7 +46,7 @@ class Image(models.Model):
         verbose_name = 'image'
         verbose_name_plural = 'images'
 
-    def __unicode__(self):
+    def __str__(self):
         return shorten(self.description, 25) or 'image'
 
 
@@ -61,7 +61,7 @@ class MenuItem(models.Model):
         verbose_name='is active?',
         help_text='If menu item is active it\'s visible in menu')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def clean(self):
