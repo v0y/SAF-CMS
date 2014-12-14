@@ -1,5 +1,6 @@
 from os.path import dirname, join, realpath
-import platform
+
+from django.contrib.auth.models import User
 
 _current_dir = dirname(realpath(__file__))
 
@@ -8,8 +9,7 @@ _current_dir = dirname(realpath(__file__))
 # Basic settings
 ###############################################################################
 
-IS_PRODUCTION = platform.node().endswith('vipserv.org')
-DEBUG = not IS_PRODUCTION
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -17,6 +17,7 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
+AUTH_USER_MODEL = User
 ALLOWED_HOSTS = ['*']
 SECRET_KEY = 'qpn8yh!vfg#waky9i+982^qc07u&939yt!52@)2t3sj92%gv$0'
 ROOT_URLCONF = 'safcms.urls'
@@ -137,7 +138,6 @@ INSTALLED_APPS = list(filter(None, [
     'django.contrib.admindocs',
 
     # third-party
-    'debug_toolbar' if DEBUG else None,
     'fiut',
     'south',
     'themes',
@@ -156,13 +156,3 @@ INSTALLED_APPS = list(filter(None, [
 # django theme
 from .themes_settings import *
 THEMES_USE_TEMPLATE_LOADERS = False
-
-
-# debug_toolbar
-if DEBUG:
-    DEBUG_TOOLBAR_PATCH_SETTINGS = False
-    INTERNAL_IPS = ['127.0.0.1', ]
-
-    DEBUG_TOOLBAR_CONFIG = {
-        'INTERCEPT_REDIRECTS': False
-    }
