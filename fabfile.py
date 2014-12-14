@@ -61,7 +61,6 @@ def deploy(branch='master'):
         run('git submodule init')
         run('git submodule update --force')
         run('./manage.py syncdb --noinput')
-        run('./manage.py migrate --noinput')
         run('./manage.py collectstatic --noinput')
         execute(restart)
 
