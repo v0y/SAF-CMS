@@ -1,6 +1,5 @@
 from os.path import dirname, join, realpath
 
-from django.contrib.auth.models import User
 
 _current_dir = dirname(realpath(__file__))
 
@@ -17,7 +16,6 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-AUTH_USER_MODEL = User
 ALLOWED_HOSTS = ['*']
 SECRET_KEY = 'qpn8yh!vfg#waky9i+982^qc07u&939yt!52@)2t3sj92%gv$0'
 ROOT_URLCONF = 'safcms.urls'
@@ -139,7 +137,6 @@ INSTALLED_APPS = list(filter(None, [
 
     # third-party
     'fiut',
-    'south',
     'themes',
 
     # internal

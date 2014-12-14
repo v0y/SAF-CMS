@@ -1,101 +1,92 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+import safcms.pages.models
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Box'
-        db.create_table('pages_box', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('Page', self.gf('django.db.models.fields.related.ForeignKey')(related_name='boxes', to=orm['pages.Page'])),
-            ('codename', self.gf('django.db.models.fields.SlugField')(max_length=50)),
-            ('content', self.gf('django.db.models.fields.TextField')()),
-            ('content_type', self.gf('django.db.models.fields.IntegerField')(default=1)),
-        ))
-        db.send_create_signal('pages', ['Box'])
+    dependencies = [
+    ]
 
-        # Adding model 'Image'
-        db.create_table('pages_image', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('page', self.gf('django.db.models.fields.related.ForeignKey')(related_name='images', to=orm['pages.Page'], null=True, blank=True)),
-            ('description', self.gf('django.db.models.fields.CharField')(max_length=256, blank=True, null=True)),
-            ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-        ))
-        db.send_create_signal('pages', ['Image'])
-
-        # Adding model 'MenuItem'
-        db.create_table('pages_menuitem', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(unique=True, blank=True, max_length=64)),
-            ('parent', self.gf('django.db.models.fields.related.ForeignKey')(related_name='children', to=orm['pages.MenuItem'], null=True, blank=True)),
-            ('page', self.gf('django.db.models.fields.related.OneToOneField')(unique=True, related_name='menu_item', to=orm['pages.Page'], null=True, blank=True)),
-            ('is_active', self.gf('django.db.models.fields.BooleanField')()),
-        ))
-        db.send_create_signal('pages', ['MenuItem'])
-
-        # Adding model 'Page'
-        db.create_table('pages_page', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(unique=True, max_length=64)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(unique=True, max_length=50, blank=True, null=True)),
-            ('short', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('content', self.gf('django.db.models.fields.TextField')()),
-            ('content_type', self.gf('django.db.models.fields.IntegerField')(default=1)),
-        ))
-        db.send_create_signal('pages', ['Page'])
-
-
-    def backwards(self, orm):
-        # Deleting model 'Box'
-        db.delete_table('pages_box')
-
-        # Deleting model 'Image'
-        db.delete_table('pages_image')
-
-        # Deleting model 'MenuItem'
-        db.delete_table('pages_menuitem')
-
-        # Deleting model 'Page'
-        db.delete_table('pages_page')
-
-
-    models = {
-        'pages.box': {
-            'Meta': {'object_name': 'Box'},
-            'Page': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'boxes'", 'to': "orm['pages.Page']"}),
-            'codename': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
-            'content': ('django.db.models.fields.TextField', [], {}),
-            'content_type': ('django.db.models.fields.IntegerField', [], {'default': '1'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
-        },
-        'pages.image': {
-            'Meta': {'object_name': 'Image'},
-            'description': ('django.db.models.fields.CharField', [], {'max_length': '256', 'blank': 'True', 'null': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
-            'page': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'images'", 'to': "orm['pages.Page']", 'null': 'True', 'blank': 'True'})
-        },
-        'pages.menuitem': {
-            'Meta': {'object_name': 'MenuItem'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_active': ('django.db.models.fields.BooleanField', [], {}),
-            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'blank': 'True', 'max_length': '64'}),
-            'page': ('django.db.models.fields.related.OneToOneField', [], {'unique': 'True', 'related_name': "'menu_item'", 'to': "orm['pages.Page']", 'null': 'True', 'blank': 'True'}),
-            'parent': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'children'", 'to': "orm['pages.MenuItem']", 'null': 'True', 'blank': 'True'})
-        },
-        'pages.page': {
-            'Meta': {'object_name': 'Page', 'ordering': "['name']"},
-            'content': ('django.db.models.fields.TextField', [], {}),
-            'content_type': ('django.db.models.fields.IntegerField', [], {'default': '1'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '64'}),
-            'short': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '50', 'blank': 'True', 'null': 'True'})
-        }
-    }
-
-    complete_apps = ['pages']
+    operations = [
+        migrations.CreateModel(
+            name='Box',
+            fields=[
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
+                ('name', models.CharField(max_length=128, blank=True)),
+                ('codename', models.SlugField(unique=True)),
+                ('content', models.TextField()),
+                ('content_type', models.IntegerField(choices=[(1, 'markdown'), (2, 'html')], verbose_name='content type', default=1)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Image',
+            fields=[
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
+                ('description', models.CharField(max_length=256, blank=True, null=True)),
+                ('image', models.ImageField(upload_to=safcms.pages.models.Image.rename_image)),
+            ],
+            options={
+                'verbose_name_plural': 'images',
+                'verbose_name': 'image',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='MenuItem',
+            fields=[
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
+                ('name', models.CharField(max_length=64, blank=True, unique=True)),
+                ('is_active', models.BooleanField(verbose_name='is active?', help_text="If menu item is active it's visible in menu")),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Page',
+            fields=[
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
+                ('name', models.CharField(max_length=64, unique=True)),
+                ('slug', models.SlugField(blank=True, unique=True, null=True)),
+                ('short', models.TextField(blank=True)),
+                ('content', models.TextField(blank=True)),
+                ('content_type', models.IntegerField(choices=[(1, 'markdown'), (2, 'html')], verbose_name='content type', default=1)),
+            ],
+            options={
+                'verbose_name_plural': 'pages',
+                'ordering': ['name'],
+                'verbose_name': 'page',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='menuitem',
+            name='page',
+            field=models.OneToOneField(blank=True, related_name='menu_item', to='pages.Page', null=True),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='menuitem',
+            name='parent',
+            field=models.ForeignKey(blank=True, related_name='children', to='pages.MenuItem', help_text='If manu item has no parent it is main (index) menu item', null=True),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='image',
+            name='page',
+            field=models.ForeignKey(blank=True, related_name='images', to='pages.Page', null=True),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='box',
+            name='page',
+            field=models.ForeignKey(blank=True, related_name='boxes', to='pages.Page', null=True),
+            preserve_default=True,
+        ),
+    ]

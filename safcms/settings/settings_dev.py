@@ -12,6 +12,8 @@ DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False
 }
 
+DEFAULT_THEME = 2
+
 # import local settings
 try:
     from .settings_local import *
