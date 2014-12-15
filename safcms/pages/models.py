@@ -58,6 +58,7 @@ class MenuItem(models.Model):
     page = models.OneToOneField(
         'Page', related_name='menu_item', blank=True, null=True)
     is_active = models.BooleanField(
+        default=True,
         verbose_name='is active?',
         help_text='If menu item is active it\'s visible in menu')
 

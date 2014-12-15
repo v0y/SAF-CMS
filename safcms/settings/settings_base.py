@@ -20,6 +20,7 @@ ALLOWED_HOSTS = ['*']
 SECRET_KEY = 'qpn8yh!vfg#waky9i+982^qc07u&939yt!52@)2t3sj92%gv$0'
 ROOT_URLCONF = 'safcms.urls'
 WSGI_APPLICATION = 'passenger_wsgi.application'
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 
 ###############################################################################
