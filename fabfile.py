@@ -56,6 +56,23 @@ def deploy(branch='master'):
 
         execute(pyc)
         run('pip install -r requirements.txt')
+        execute(fast_deploy(branch))
+
+
+@task
+def fast_deploy(branch='master'):
+    """
+    Make deploy without installing requirements
+    """
+    assert env.project_root, PROJECT_NOT_SET_ERROR_MSG
+    assert env.venv_path, PROJECT_NOT_SET_ERROR_MSG
+    assert env.settings_module, PROJECT_NOT_SET_ERROR_MSG
+
+    with cd(env.project_root), \
+            prefix('source %s' % env.venv_path), \
+            shell_env(DJANGO_SETTINGS_MODULE=env.settings_module):
+
+        execute(pyc)
         run('git reset --hard')
         run('git pull --force origin %s' % branch)
         run('git submodule init')
