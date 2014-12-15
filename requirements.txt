@@ -1,7 +1,7 @@
 Django==1.7.1
 django-debug-toolbar==1.2.2
-Markdown==2.3.1
-pillow==2.3
+Markdown==2.5.2
+pillow==2.6.1
 
-git+git://github.com/v0y/django-FIUT.git@542289d477a3c6e40e36b1822be511d8853eb0c4
-git+git://github.com/v0y/django-themes.git
+git+git://github.com/v0y/django-FIUT.git@a258e055cd92d105c7edfc0a5f2bc53edba479c4
+git+git://github.com/ilblackdragon/django-themes.git@38ae4660cc7308dec99914f7a097079064cca9bb
