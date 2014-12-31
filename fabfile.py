@@ -56,7 +56,13 @@ def deploy(branch='master'):
 
         execute(pyc)
         run('pip install -r requirements.txt')
-        execute(fast_deploy(branch))
+        run('git reset --hard')
+        run('git pull --force origin %s' % branch)
+        run('git submodule init')
+        run('git submodule update --force')
+        run('./manage.py syncdb --noinput')
+        run('./manage.py collectstatic --noinput')
+        execute(restart)
 
 
 @task
