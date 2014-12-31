@@ -1,5 +1,7 @@
 from .settings_base import *
 
+DEBUG = False
+TEMPLATE_DEBUG = False
 
 STATIC_ROOT = join('/', 'var', 'www', 'lolwtf.pl', 'public', 'static')
 MEDIA_ROOT = join('/', 'var', 'www', 'lolwtf.pl', 'public', 'media')
