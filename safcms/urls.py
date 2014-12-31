@@ -27,8 +27,8 @@ if settings.SITE_ID == 2:
     )
 
 # redirect to right page even if user used appending slash
-# urlpatterns += patterns('',
-#     ('^(?P<x>.+)/$', RedirectView.as_view(url='/%(x)s', permanent=True)))
+urlpatterns += patterns('',
+    ('^(?P<x>.+)/$', RedirectView.as_view(url='/%(x)s', permanent=True)))
 
 if settings.DEBUG:
     urlpatterns += \
