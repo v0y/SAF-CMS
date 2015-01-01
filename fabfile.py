@@ -1,4 +1,12 @@
-from fabric.api import cd, env, execute, prefix, run, shell_env, task
+from fabric.api import (
+    cd,
+    env,
+    execute,
+    prefix,
+    run,
+    shell_env,
+    task,
+)
 
 
 env.project_name = None
