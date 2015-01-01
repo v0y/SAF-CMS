@@ -34,6 +34,7 @@ def project(name):
 
     env.project_root = '/var/lib/uwsgi/%s/production/' % name
     env.venv_path = '/var/lib/virtualenv/%s/production/bin/activate' % name
+    env.static_path = '/var/www/%s/public/static' % name
     env.project_name = name
 
     env.settings_module = {
@@ -69,6 +70,7 @@ def deploy(branch='master'):
         run('git submodule init')
         run('git submodule update --force')
         run('./manage.py syncdb --noinput')
+        run('rm -r %s/*' % env.static_path)
         run('./manage.py collectstatic --noinput')
         execute(restart)
 
@@ -92,6 +94,7 @@ def fast_deploy(branch='master'):
         run('git submodule init')
         run('git submodule update --force')
         run('./manage.py syncdb --noinput')
+        run('rm -r %s/*' % env.static_path)
         run('./manage.py collectstatic --noinput')
         execute(restart)
 
