@@ -64,11 +64,11 @@ def deploy(branch='master'):
             shell_env(DJANGO_SETTINGS_MODULE=env.settings_module):
 
         execute(pyc)
-        run('pip install -r requirements.txt')
         run('git reset --hard')
         run('git pull --force origin %s' % branch)
         run('git submodule init')
         run('git submodule update --force')
+        run('pip install -r requirements.txt')
         run('./manage.py syncdb --noinput')
         run('rm -r %s/*' % env.static_path)
         run('./manage.py collectstatic --noinput')
