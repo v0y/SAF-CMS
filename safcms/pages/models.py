@@ -10,17 +10,12 @@ from safcms.shared.models import NameAbstract, SlugAbstract
 from .enums import PageContentTypes, CONTENT_TYPE_CHOICES
 
 
-class Box(models.Model):
-    page = models.ForeignKey(
-        'Page', related_name='boxes', blank=True, null=True)
-    name = models.CharField(blank=True, max_length=128)
-    codename = models.SlugField(unique=True)
-    content = models.TextField()
+class ContentTypesAbstract(models.Model):
     content_type = models.IntegerField(
         choices=CONTENT_TYPE_CHOICES, verbose_name='content type', default=1)
 
-    def __str__(self):
-        return self.name or self.codename
+    class Meta:
+        abstract = True
 
     @property
     def is_html(self):
@@ -29,6 +24,21 @@ class Box(models.Model):
     @property
     def is_markdown(self):
         return self.content_type == PageContentTypes.MARKDOWN
+
+    @property
+    def is_markdown_url(self):
+        return self.content_type == PageContentTypes.MARKDOWN_URL
+
+
+class Box(ContentTypesAbstract):
+    page = models.ForeignKey(
+        'Page', related_name='boxes', blank=True, null=True)
+    name = models.CharField(blank=True, max_length=128)
+    codename = models.SlugField(unique=True)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.name or self.codename
 
 
 class Image(models.Model):
@@ -86,11 +96,9 @@ class MenuItem(models.Model):
         return cls.objects.get(parent__isnull=True)
 
 
-class Page(NameAbstract, SlugAbstract):
+class Page(ContentTypesAbstract, NameAbstract, SlugAbstract):
     short = models.TextField(blank=True)
     content = models.TextField(blank=True)
-    content_type = models.IntegerField(
-        choices=CONTENT_TYPE_CHOICES, verbose_name='content type', default=1)
 
     class Meta:
         ordering = ['name']
@@ -100,12 +108,3 @@ class Page(NameAbstract, SlugAbstract):
     @staticmethod
     def get_index():
         return MenuItem.get_index().page
-
-    @property
-    def is_html(self):
-        return self.content_type == PageContentTypes.HTML
-
-    @property
-    def is_markdown(self):
-        return self.content_type == PageContentTypes.MARKDOWN
-
