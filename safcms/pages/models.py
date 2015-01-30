@@ -4,15 +4,24 @@ from uuid import uuid4
 from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
 from django.db import models
+import requests
+from requests.exceptions import MissingSchema
 
 from safcms.shared.helpers import shorten
-from safcms.shared.models import NameAbstract, SlugAbstract
-from .enums import PageContentTypes, CONTENT_TYPE_CHOICES
+from safcms.shared.models import (
+    NameAbstract,
+    SlugAbstract,
+)
+from .enums import (
+    CONTENT_TYPE_CHOICES,
+    PageContentTypes,
+)
 
 
-class ContentTypesAbstract(models.Model):
+class ContentAbstract(models.Model):
     content_type = models.IntegerField(
         choices=CONTENT_TYPE_CHOICES, verbose_name='content type', default=1)
+    content = models.TextField()
 
     class Meta:
         abstract = True
@@ -29,13 +38,25 @@ class ContentTypesAbstract(models.Model):
     def is_markdown_url(self):
         return self.content_type == PageContentTypes.MARKDOWN_URL
 
+    @property
+    def markdown_from_url(self):
+        error = 'Document fetching error - try again later'
+        try:
+            response = requests.get(self.content)
+        except MissingSchema:
+            return error
 
-class Box(ContentTypesAbstract):
+        if response.status_code != 200:
+            return error
+        else:
+            return response.content
+
+
+class Box(ContentAbstract):
     page = models.ForeignKey(
         'Page', related_name='boxes', blank=True, null=True)
     name = models.CharField(blank=True, max_length=128)
     codename = models.SlugField(unique=True)
-    content = models.TextField()
 
     def __str__(self):
         return self.name or self.codename
@@ -96,9 +117,8 @@ class MenuItem(models.Model):
         return cls.objects.get(parent__isnull=True)
 
 
-class Page(ContentTypesAbstract, NameAbstract, SlugAbstract):
+class Page(ContentAbstract, NameAbstract, SlugAbstract):
     short = models.TextField(blank=True)
-    content = models.TextField(blank=True)
 
     class Meta:
         ordering = ['name']

@@ -11,5 +11,7 @@
 		{{ page.content|safe }}
 	{% elif page.is_markdown %}
 		{{ page.content|markdown }}
+	{% elif page.is_markdown_url %}
+		{{ page.markdown_from_url|markdown }}
 	{% endif %}
 {% endblock %}
