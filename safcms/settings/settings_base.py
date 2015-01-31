@@ -1,4 +1,8 @@
-from os.path import dirname, join, realpath
+from os.path import (
+    dirname,
+    join,
+    realpath,
+)
 
 
 _current_dir = dirname(realpath(__file__))
@@ -11,9 +15,7 @@ _current_dir = dirname(realpath(__file__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    ('voy', 'voyageur.pl@gmail.com'),
-)
+ADMINS = []
 MANAGERS = ADMINS
 
 ALLOWED_HOSTS = ['*']
@@ -140,7 +142,6 @@ INSTALLED_APPS = list(filter(None, [
     'themes',
 
     # internal
-    'safcms.mails',
     'safcms.pages',
     'safcms.shared',
 ]))
