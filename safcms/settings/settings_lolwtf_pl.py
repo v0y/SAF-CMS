@@ -8,8 +8,8 @@ MEDIA_ROOT = join('/', 'var', 'www', 'lolwtf.pl', 'public', 'media')
 
 WSGI_APPLICATION = 'wsgi.application'
 
-SITE_ID = 3
-DEFAULT_THEME = 2
+SITE_ID = 2
+DEFAULT_THEME = 1
 
 # import local settings
 try:
