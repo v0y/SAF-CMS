@@ -17,15 +17,6 @@ urlpatterns = patterns('',
     url(r'^', include('safcms.pages.urls')),
 )
 
-# urls for 3d.askra.pl
-if settings.SITE_ID == 2:
-    favico_url = '%s3d.askra.pl/shared/imgs/favicon.ico' % settings.STATIC_URL
-
-    urlpatterns += patterns('',
-        url(r'^formularz/', include('safcms.mails.urls.d_askra_pl')),
-        (r'^favicon\.ico$', RedirectView.as_view(url=favico_url)),
-    )
-
 # redirect to right page even if user used appending slash
 urlpatterns += patterns('',
     ('^(?P<x>.+)/$', RedirectView.as_view(url='/%(x)s', permanent=True)))

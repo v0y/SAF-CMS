@@ -9,18 +9,10 @@
     },
     {
         "fields": {
-            "name": "3d.askra.pl",
-            "domain": "3d.askra.pl"
-        },
-        "pk": 2,
-        "model": "sites.site"
-    },
-    {
-        "fields": {
             "name": "lolwtf.pl",
             "domain": "lolwtf.pl"
         },
-        "pk": 3,
+        "pk": 2,
         "model": "sites.site"
     },
     {
