@@ -12,7 +12,7 @@ DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False
 }
 
-DEFAULT_THEME = 2
+DEFAULT_THEME = 1
 
 # import local settings
 try:
