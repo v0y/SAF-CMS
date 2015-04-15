@@ -81,7 +81,7 @@ class Image(models.Model):
         return shorten(self.description, 25) or 'image'
 
 
-class MenuItem(models.Model):
+class MenuItem(SlugAbstract):
     name = models.CharField(max_length=64, blank=True, unique=True)
     parent = models.ForeignKey(
         'self', related_name='children', blank=True, null=True,
@@ -110,7 +110,19 @@ class MenuItem(models.Model):
         return super(MenuItem, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('page', args=[self.page.slug]) if self.page else '#'
+        menu_items = []
+        menu_item = self
+
+        while menu_item:
+            if not menu_item.parent:
+                break
+            slug = menu_item.page.slug if menu_item.page else menu_item.slug
+            if slug:
+                menu_items.append(slug)
+            menu_item = menu_item.parent
+
+        menu_items.reverse()
+        return '/' + '/'.join(menu_items)
 
     @classmethod
     def get_index(cls):
