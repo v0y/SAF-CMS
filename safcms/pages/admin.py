@@ -44,11 +44,7 @@ class PageAdmin(admin.ModelAdmin):
     list_display = ('name', 'path')
     fieldsets = (
         (None, {
-            'fields': ('name', 'short', 'content')
-        }),
-        ('Advanced', {
-            'classes': ('collapse',),
-            'fields': ('slug', 'content_type')
+            'fields': ('name', 'slug', 'short', 'content', 'content_type')
         }),
     )
 admin.site.register(Page, PageAdmin)
