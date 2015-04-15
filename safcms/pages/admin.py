@@ -41,7 +41,7 @@ class MenuItemInline(admin.TabularInline):
 
 class PageAdmin(admin.ModelAdmin):
     inlines = [MenuItemInline, ImageInline, BoxIneline]
-    list_display = ('name',)
+    list_display = ('name', 'path')
     fieldsets = (
         (None, {
             'fields': ('name', 'short', 'content')

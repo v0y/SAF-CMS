@@ -154,3 +154,7 @@ class Page(ContentAbstract, NameAbstract, SlugAbstract):
     @staticmethod
     def get_index():
         return MenuItem.get_index().page
+
+    @property
+    def path(self):
+        return self.menu_item.path if self.menu_item else ''
