@@ -109,6 +109,9 @@ class MenuItem(SlugAbstract):
             self.name = self.page.name
         return super(MenuItem, self).save(*args, **kwargs)
 
+    def get_slug(self):
+        return self.page.slug if self.page else self.slug or ''
+
     def get_absolute_url(self):
         menu_items = []
         menu_item = self
@@ -116,7 +119,7 @@ class MenuItem(SlugAbstract):
         while menu_item:
             if not menu_item.parent:
                 break
-            slug = menu_item.page.slug if menu_item.page else menu_item.slug
+            slug = menu_item.get_slug()
             if slug:
                 menu_items.append(slug)
             menu_item = menu_item.parent
