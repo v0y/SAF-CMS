@@ -96,6 +96,17 @@ class MenuItem(SlugAbstract):
     def __str__(self):
         return self.name
 
+    @property
+    def path(self):
+        names = []
+        menu_item = self
+
+        while menu_item:
+            names.append(menu_item.name)
+            menu_item = menu_item.parent
+
+        return ' → '.join(reversed(names))
+
     def clean(self):
         existing_index = MenuItem.objects.filter(parent__isnull=True) \
             .only('pk').first()
