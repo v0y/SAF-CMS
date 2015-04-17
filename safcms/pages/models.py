@@ -92,9 +92,13 @@ class MenuItem(SlugAbstract):
         default=True,
         verbose_name='is active?',
         help_text='If menu item is active it\'s visible in menu')
+    position = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ['position', 'name']
 
     @property
     def path(self):

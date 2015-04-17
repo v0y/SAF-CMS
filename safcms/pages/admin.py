@@ -31,7 +31,7 @@ class ImageInline(admin.TabularInline):
 
 
 class MenuItemAdmin(admin.ModelAdmin):
-    list_display = ('name', 'path', 'is_active', 'page')
+    list_display = ('name', 'position', 'path', 'is_active', 'page')
 admin.site.register(MenuItem, MenuItemAdmin)
 
 
