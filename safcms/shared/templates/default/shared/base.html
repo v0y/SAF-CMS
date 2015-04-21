@@ -8,15 +8,19 @@
 	<body class="container">
 		<div class="row">
 			<div class="col-10"></div>
-			<div class="col-80">
-				{% include 'shared/navbar.html' %}
+			<div class="col-80 content">
 
-				<h1>
+				<div class="row">
+					{% include 'shared/navbar.html' %}
+				</div>
+
+				<div class="row">
 					{% block header %}{% endblock %}
-				</h1>
+				</div>
 
-				{% block content %}{% endblock %}
-
+				<div class="row">
+					{% block content %}{% endblock %}
+				</div>
 			</div>
 		</div>
 	</body>

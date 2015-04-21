@@ -149,6 +149,7 @@ class MenuItem(SlugAbstract):
 
 class Page(ContentAbstract, NameAbstract, SlugAbstract):
     short = models.TextField(blank=True)
+    show_title = models.BooleanField(default=True)
 
     class Meta:
         ordering = ['name']

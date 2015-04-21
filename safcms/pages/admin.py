@@ -41,10 +41,17 @@ class MenuItemInline(admin.TabularInline):
 
 class PageAdmin(admin.ModelAdmin):
     inlines = [MenuItemInline, ImageInline, BoxIneline]
-    list_display = ('name', 'path')
+    list_display = ('name', 'path', 'show_title')
     fieldsets = (
         (None, {
-            'fields': ('name', 'slug', 'short', 'content', 'content_type')
+            'fields': (
+                'name',
+                'slug',
+                'show_title',
+                'short',
+                'content',
+                'content_type',
+            )
         }),
     )
 admin.site.register(Page, PageAdmin)
