@@ -65,6 +65,7 @@ def deploy(branch='master'):
 
         execute(pyc)
         run('git reset --hard')
+        run('git checkout %s' % branch)
         run('git pull --force origin %s' % branch)
         run('git submodule init')
         run('git submodule update --force')
@@ -90,6 +91,7 @@ def fast_deploy(branch='master'):
 
         execute(pyc)
         run('git reset --hard')
+        run('git checkout %s' % branch)
         run('git pull --force origin %s' % branch)
         run('git submodule init')
         run('git submodule update --force')
